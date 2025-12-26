@@ -1,0 +1,19 @@
+# Ignore everything without an extension.
+*
+!*.*
+!*/
+
+# Don't ignore license files.
+!LICENSE
+
+# Ignore Python cache:
+*__pycache__/
+
+# Ignore vscode directory:
+*vscode/
+
+# Ignore .txt files.
+*.txt
+
+# Ignore .docx files.
+*.docx
