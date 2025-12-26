@@ -7,3 +7,4 @@ Material från föreläsningar:
 * [L04](./L04/README.md): Talsystem och 2-komplementsrepresentation.
 * [L05](./L05/README.md): **P01** - Praktisk labb med 74-seriegrindar.
 * [L06](./L06/README.md): Introduktion till VHDL, installation av programvaror.
+* [L07](./L07/README.md): Syntes samt simulering av grindnät i VHDL (del I).
