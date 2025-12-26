@@ -45,12 +45,14 @@ Erik Pihl ([erik.axel.pihl@gmail.com](mailto:erik.axel.pihl@gmail.com))
 * Utgörs av textdokument samt video tutorials, som länkas till i samband med lektionerna de behandlas.
 
 ### Hårdvara
-* Följande hårdvara, som finns på skolan, kommer att användas under kursen:
-* FPGA-kort `Terasic DE0`.
-* Digitala kretsar (74-serien)
+Följande hårdvara, som finns på skolan, kommer att användas under kursen:
+* FPGA-kortet `Terasic DE0`.
+* Digitala kretsar (74-serien).
 
 ### Mjukvara
 Följande programvara krävs:
-* [`Quartus Lite 20.1` med `ModelSim`](https://www.altera.com/downloads/fpga-development-tools/quartus-prime-lite-edition-design-software-version-20-1-windows) – Verktyg för syntes samt simulering i VHDL. Kommer installeras under lektionstid.
-* [`CircuitVerse`](https://circuitverse.org/simulator) – Onlineverktyg för simulering av digitala kretser, kräver ingen installation.
-* [`LTspice`](https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html) – Verktyg för simulering av logiska grindar på kretsnivå samt konstruktion av AD-omvandlare.
+* [Quartus Prime Lite 20.1](https://www.altera.com/download-center/license-agreement/72631/c2e6b94d64bf585214d734f0a8c13b3424b561bb?filename=QuartusLiteSetup-20.1.0.711-windows.exe) -  Verktyg för syntes i VHDL.
+* [ModelSim](https://www.altera.com/download-center/license-agreement/72631/00478ed0e5fe6391ccd013162716ae26ea092154?filename=ModelSimSetup-20.1.0.711-windows.exe) - Verktyg för simulering av digitala kretsar.
+* [Cyclone V Device Support](https://www.altera.com/download-center/license-agreement/72636/c4ee3fa13f1dfbd3d95c8baa9fece7b864ef5d2c?filename=cyclonev-20.1.0.711.qdz) -  Firmware för skolans FPGA-kort.
+* [CircuitVerse](https://circuitverse.org/simulator) - Onlineverktyg för simulering av digitala kretser, kräver ingen installation.
+* [LTspice](https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html) - Verktyg för simulering av logiska grindar på kretsnivå samt konstruktion av AD-omvandlare.
