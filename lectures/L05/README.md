@@ -4,7 +4,7 @@
 * **P01** - Praktisk labb med 74-seriegrindar.
 
 ## Mål med lektionen
-* Känna realisera en logisk krets med hjälp av 74-seriegrindar.
+* Kunna realisera en logisk krets med hjälp av 74-seriegrindar.
 * Förstå varför hårdvarubeskrivande språk används för att implementera digitala kretsar.
 
 ## Förutsättningar
