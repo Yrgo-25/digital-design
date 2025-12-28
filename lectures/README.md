@@ -9,4 +9,4 @@ Material från föreläsningar:
 * [L06](./L06/README.md): Introduktion till VHDL, installation av programvaror.
 * [L07](./L07/README.md): Syntes samt simulering av grindnät i VHDL (del I).
 * [L08](./L08/README.md): Syntes samt simulering av grindnät i VHDL (del II).
-
+* [L09](./L09/README.md): Syntes samt simulering av grindnät i VHDL (del III).
