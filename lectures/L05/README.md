@@ -1,7 +1,7 @@
-# L05 - Talsystem och 2-komplementsaritmetik
+# L05 - Praktisk labb med 74-seriegrindar
 
 ## Dagordning
-* **P01** - Praktisk labb med 74-seriegrindar.
+* Genomförande av **P01**, vilket innefattar konstruktion av en logisk krets med 74-seriegrindar.
 
 ## Mål med lektionen
 * Kunna realisera en logisk krets med hjälp av 74-seriegrindar.
@@ -14,9 +14,11 @@
 
 ### Förberedelse
 * Gå igenom tidigare lektioner.
+* Förbered labbuppgifterna hemma - ta fram logiska ekvationer och simulera kretsarna i CircuitVerse.
 
 ### Under lektionen
-* Labbuppgiften delas ut i början av lektionen.
+* Labbuppgiften ska genomföras självständigt.
+* Ställ frågor vid behov.
 
 ## Utvärdering
 * Hur upplevde ni att realisera ett logiskt grindnät i fysisk hårdvara?
