@@ -17,7 +17,7 @@
 
 ### Förberedelse
 * Repetera materialet från lektioner L07-L08.
-* Vid behov, se gärna min tutorial [Syntes och simulering i VHDL](https://www.youtube.com/watch?v=9ibUE7czpc4&authuser=0), som behandlar just syntes (konstruktion) samt simulering av en 3-ingångars XOR-grind i VHDL.
+* Vid behov, se gärna min tutorial [Syntes och simulering i VHDL](https://www.youtube.com/watch?v=gtaaarLyeXQ&authuser=0), som behandlar just syntes (konstruktion) samt simulering av ett bromsassistanssystem för fordon via ADAS (`Advanced Driver Assistance System`).
 
 ### Under lektionen
 * Genomför bifogade [övningsuppgifter](#bilaga-a---övningsuppgifter) nedan.
