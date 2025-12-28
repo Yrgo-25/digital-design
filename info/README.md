@@ -20,9 +20,9 @@ Erik Pihl ([erik.axel.pihl@gmail.com](mailto:erik.axel.pihl@gmail.com))
 | 6  | 5/2  | L08 | Syntes samt simulering av grindnät i VHDL (del II) |
 | 6  | 6/2  | L09 | Syntes samt simulering av grindnät i VHDL (del III) |
 | 7  | 9/2  | L10 | **P02** - Praktisk labb med kombinatorisk logik i VHDL |
-| 7  | 12/2 | L11 | Konstruktion av AD-omvandlare med prioritetsavkodare |
-| 8  | 16/2 | L12 | Konstruktion av komparatorer för hand samt i VHDL |
-| 8  | 19/2 | L13 | Konstruktion av multiplexers för hand samt i VHDL |
+| 7  | 12/2 | L11 | Konstruktion av komparatorer för hand samt i VHDL  |
+| 8  | 16/2 | L12 | Konstruktion av multiplexers för hand samt i VHDL |
+| 8  | 19/2 | L13 | Konstruktion av AD-omvandlare med prioritetsavkodare |
 | 9  | 23/2 | L14 | **D01** - VHDL teori (del I) |
 | 9  | 26/2 | L15 | Delkomponenter i VHDL, 7-segmentsdisplayer (del I) |
 | 10 | 2/3  | L16 | Delkomponenter i VHDL, 7-segmentsdisplayer (del II) |
