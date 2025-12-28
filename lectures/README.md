@@ -13,3 +13,4 @@ Material från föreläsningar:
 * [L10](./L10/README.md): **P02** - Praktisk labb med kombinatorisk logik i VHDL.
 * [L11](./L11/README.md): Konstruktion av komparatorer.
 * [L12](./L12/README.md): Konstruktion av multiplexers.
+* [L13](./L13/README.md): Konstruktion av AD-omvandlare med prioritetsavkodare.
