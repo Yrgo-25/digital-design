@@ -10,3 +10,4 @@ Material från föreläsningar:
 * [L07](./L07/README.md): Syntes samt simulering av grindnät i VHDL (del I).
 * [L08](./L08/README.md): Syntes samt simulering av grindnät i VHDL (del II).
 * [L09](./L09/README.md): Syntes samt simulering av grindnät i VHDL (del III).
+* [L10](./L10/README.md): **P02** - Praktisk labb med kombinatorisk logik i VHDL.
