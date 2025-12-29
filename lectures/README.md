@@ -15,3 +15,4 @@ Material från föreläsningar:
 * [L12](./L12/README.md): Konstruktion av multiplexers.
 * [L13](./L13/README.md): Konstruktion av AD-omvandlare med prioritetsavkodare.
 * [L14](./L14/README.md): **D01** - VHDL teori (del I).
+* [L15](./L15/README.md): Delkomponenter i VHDL, 7-segmentsdisplayer (del I).
