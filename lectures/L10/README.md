@@ -1,4 +1,4 @@
-# L05 - Praktisk labb med med kombinatorisk logik i VHDL
+# L10 - Praktisk labb med med kombinatorisk logik i VHDL
 
 ## Dagordning
 * Genomförande av **P02**, vilket innefattar konstruktion och simulering av 1 - 2 kombinatoriska
