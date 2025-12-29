@@ -16,3 +16,4 @@ Material från föreläsningar:
 * [L13](./L13/README.md): Konstruktion av AD-omvandlare med prioritetsavkodare.
 * [L14](./L14/README.md): **D01** - VHDL teori (del I).
 * [L15](./L15/README.md): Delkomponenter i VHDL, 7-segmentsdisplayer (del I).
+* [L16](./L16/README.md): Delkomponenter i VHDL, 7-segmentsdisplayer (del II).
