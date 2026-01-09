@@ -4,14 +4,14 @@
 * Introduktion till digitalteknik.
 * Grundläggande boolesk algebra.
 * Logiska grindar och enkla grindnät.
-* NOT-grinden samt buffern på transistornivå.
+* NOT-grinden på transistornivå.
 
 ## Mål med lektionen
 * Känna till skillnaden mellan digitala och analoga signaler samt varför digitala kretsar föredras framför analoga.
 * Känna till funktion och symboler för de vanligaste logiska grindarna.
 * Känna till de mest grundläggande reglerna för Boolesk algebra.
 * Kunna konstruera samt simulera enkla grindnät utefter en logisk funktion.
-* Kunna rita upp NOT-grinden samt buffern med CMOS-transistorer och förklara deras respektive funktion.
+* Kunna rita upp NOT-grinden CMOS-transistorer och förklara dess funktion.
 
 ## Instruktioner
 
@@ -25,11 +25,13 @@ information om vad digitalteknik är.
 
 ### Under lektionen
 * Se bifogat [exempel](#bilaga-a---exempel-på-realisering-av-en-logisk-funktion) på realisering av en logisk funktion nedan.
-* Genomför bifogade [övningsuppgifter](#bilaga-b---övningsuppgifter) nedan.
 
 ### Demonstration
 * Simulering av ett par enklare logiska grindnät i [CircuitVerse](https://circuitverse.org/simulator).
 * Konstruktion av NOT-grinden med CMOS-transistorer i LTspice.
+
+## Anteckningar
+Lektionsanteckningar finns [här](./notes/README.md).
 
 ## Utvärdering
 * Vad tyckte ni var mest intressant eller lärorikt under lektionen?
@@ -39,7 +41,7 @@ information om vad digitalteknik är.
 
 ## Nästa lektion
 * Mer arbete med logiska grindnät.
-* AND- samt NAND-grinden på transistornivå.
+* Simulering av NOT-grind samt buffern i LTspice.
 * Algebraisk minimering med boolesk algebra.
 
 ---
@@ -79,31 +81,5 @@ Vi ritar ut för samtliga 16 kombinationer av insignaler ABCD ($0000 - 1111$). V
 
 > **Tips:**
 > När du realiserar en funktion, börja med att identifiera vilka grindar du behöver för varje term i uttrycket. Använd NOT-grindar för inverterade variabler (t.ex. B'), AND-grindar för produkttermer och OR-grindar för att summera termerna.
-
----
-
-## Bilaga B - Övningsuppgifter
-
-**1.** Rita ut en buffer (två seriekopplade NOT-grindar) med CMOS-transistorer i LTspice.
-
----
-
-**2.** Konstruera och simulera följande grindnät i CircuitVerse.  
-Rita också upp grindnätens respektive sanningstabell:
-* $X = AB + A'C + (A + B)'$
-* $Y = (A + B)C'$
-* $Z = (A'B) + (AB')$
-
----
-
-**4.** Förenkla funktionen $V = (A + B)(A' + C)$ så långt som möjligt.  
-Rita sanningstabellen och konstruera motsvarande grindnät i CircuitVerse.  
-***Tips:** Vad är $A * A'$ om $A$ är 0 eller 1?*
-
----
-
-**5.** Bygg ett grindnät med tre insignaler ABC, som ger hög utsignal (1) endast om exakt två av ingångarna är höga (1).  
-Rita sanningstabellen, härled och förenkla ekvationen samt konstruera grindnätet i CircuitVerse.  
-***Tips:** Skriv först ut alla möjliga kombinationer av ABC och markera när utgången ska vara 1.*
 
 ---
