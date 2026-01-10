@@ -72,6 +72,8 @@ Notera att detta är XOR-funktionen. Motsvarande grindnät hade därmed kunnat r
 **1.** Rita ut en buffer med CMOS-transistorer i LTspice.  
 ***Tips**: Buffern kan implementeras som två NOT-grindar i serie.*
 
+Lösningsförslag finns [här](./solutions/exercise1/README.md).
+
 ---
 
 **2.** Ett grindnät innehållande två insignaler AB samt en utsignal X ska realiseras.  
@@ -88,50 +90,27 @@ Sanningstabellen för grindnätet visas nedan:
 **b)** Minimera den bestäma ekvationen algebraiskt.  
 **c)** Konstruera motsvarande grindnät i CircuitVerse.
 
+Lösningsförslag finns [här](./solutions/exercise2/README.md).
+
 ---
 
-**3.** Ett grindnät innehållande tre insignaler ABC samt en utsignal Y ska realiseras.  Sanningstabellen för grindnätet visas nedan:
+**3.** Ett grindnät innehållande tre insignaler ABC samt en utsignal X ska realiseras.  Sanningstabellen för grindnätet visas nedan:
 
-| ABC | Y |
+| ABC | X |
 |-----|---|
-| 000 | 0 |
-| 001 | 1 |
+| 000 | 1 |
+| 001 | 0 |
 | 010 | 1 |
 | 011 | 0 |
-| 100 | 1 |
+| 100 | 0 |
 | 101 | 0 |
-| 110 | 0 |
+| 110 | 1 |
 | 111 | 1 |
 
 **a)** Bestäm grindnätets ekvation via sanningstabellen.  
 **b)** Minimera den bestäma ekvationen algebraiskt.  
 **c)** Konstruera motsvarande grindnät i CircuitVerse.
 
----
-
-**4.** Ett grindnät innehållande fyra insignaler ABCD samt två utsignaler XY ska realiseras.   Sanningstabellen för grindnätet visas nedan:
-
-| ABCD | XY |
-|------|----|
-| 0000 | 01 |
-| 0001 | 11 |
-| 0010 | 01 |
-| 0011 | 11 |
-| 0100 | 10 |
-| 0101 | 10 |
-| 0110 | 00 |
-| 0111 | 00 |
-| 1000 | 01 |
-| 1001 | 11 |
-| 1010 | 01 |
-| 1011 | 11 |
-| 1100 | 10 |
-| 1101 | 10 |
-| 1110 | 00 |
-| 1111 | 00 |
-
-**a)** Bestäm grindnätets ekvation via sanningstabellen.  
-**b)** Minimera den bestäma ekvationen algebraiskt.  
-**c)** Konstruera motsvarande grindnät i CircuitVerse.
+Lösningsförslag finns [här](./solutions/exercise3/README.md).
 
 ---
