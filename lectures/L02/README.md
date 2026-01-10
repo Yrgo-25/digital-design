@@ -2,13 +2,12 @@
 
 ## Dagordning
 * Mer arbete med logiska grindnät.
-* AND- samt NAND-grinden på transistornivå.
+* Simulering av NOT-grinden samt buffern i LTspice.
 * Algebraisk minimering med boolesk algebra.
 
 ## Mål med lektionen
 * Känna till funktion och symboler för alla logiska grindar.
 * Kunna minimera enkla logiska funktioner algebraiskt.
-* Kunna rita upp AND- och NAND-grinden med CMOS-transistorer och förklara dess funktion.
 
 ## Förutsättningar
 * Genomgång av L01 för grundläggande kunskap om logiska grindar och grindnät samt boolesk algegra.
@@ -25,7 +24,7 @@
 
 ### Demonstration
 * Algebraisk minimering av ett par logiska funktioner med simulering i [CircuitVerse](https://circuitverse.org/simulator), bland annat ADAS-systemet.
-* Konstruktion av NAND-grinden med CMOS-transistorer i LTspice.
+* Konstruktion av NOT-grinden med CMOS-transistorer i LTspice.
 
 ## Utvärdering
 * Vad tyckte ni var mest intressant eller lärorikt under lektionen?
@@ -36,7 +35,7 @@
 
 ## Nästa lektion
 * Mer arbete med logiska grindnät.
-* OR- samt NOR-grinden på transistornivå.
+* AND- samt NAND-grinden på transistornivå.
 * Visuell minimering av logiska ekvationer med Karnaugh-diagram.
 
 ---
@@ -70,8 +69,8 @@ Notera att detta är XOR-funktionen. Motsvarande grindnät hade därmed kunnat r
 
 ## Bilaga B - Övningsuppgifter
 
-**1.** Rita ut en AND-grind med CMOS-transistorer i LTspice.  
-***Tips**: AND-grinden kan implementeras som en NAND-grind i serie med en NOT-grind.*
+**1.** Rita ut en buffer med CMOS-transistorer i LTspice.  
+***Tips**: Buffern kan implementeras som två NOT-grindar i serie.*
 
 ---
 

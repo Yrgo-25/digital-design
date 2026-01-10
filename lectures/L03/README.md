@@ -2,12 +2,12 @@
 
 ## Dagordning
 * Mer arbete med logiska grindnät.
-* OR- samt NOR-grinden på transistornivå.
+* AND- samt AND-grinden på transistornivå.
 * Visuell minimering av logiska ekvationer med Karnaugh-diagram.
 
 ## Mål med lektionen
 * Kunna minimera enkla logiska funktioner via användning av Karnaugh-diagram. 
-* Kunna rita upp OR- och NOR-grinden med CMOS-transistorer och förklara dess funktion.
+* Kunna rita upp AND- och NAND-grinden med CMOS-transistorer och förklara dess funktion.
 
 ## Förutsättningar
 * Genomgång av L02 för kunskap om algebraisk minimering av logiska grindnät.
@@ -23,17 +23,18 @@
 
 ### Demonstration
 * Minimering av ett par logiska funktioner med Karnaugh-diagram, simulering i [CircuitVerse](https://circuitverse.org/simulator).
-* Konstruktion av NOR-grinden med CMOS-transistorer i LTspice.
+* Konstruktion av NAND-grinden med CMOS-transistorer i LTspice.
 
 ## Utvärdering
 * Vad tyckte ni var mest intressant eller lärorikt under lektionen?
-* Kan ni rita och förklara funktionen för en OR-grind på transistornivå?
+* Kan ni rita och förklara funktionen för en AND-grind på transistornivå?
 * Känner ni er trygga med att minimera logiska funktioner med Karnaugh-diagram?
 * Har ni förslag på förbättringar eller önskemål inför kommande lektioner?
 
 ## Nästa lektion
 * Talsystem och 2-komplementsaritmetik.
 * Mer träning på logisk minimering med Karnaugh-diagram.
+* OR- samt NOR-grinden på transistornivå.
 
 ## Bilaga A - Karnaugh-diagram
 
@@ -122,8 +123,8 @@ Motsvarande grindnät visas nedan:
 
 ## Bilaga B - Övningsuppgifter
 
-**1.** Rita ut en OR-grind med CMOS-transistorer i LTspice.  
-***Tips**: OR-grinden kan implementeras som en NOR-grind i serie med en NOT-grind.*
+**1.** Rita ut en AND-grind med CMOS-transistorer i LTspice.  
+***Tips**: AND-grinden kan implementeras som en NAND-grind i serie med en NOT-grind.*
 
 ---
 

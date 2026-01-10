@@ -3,6 +3,7 @@
 ## Dagordning
 * Talsystem och 2-komplementsaritmetik.
 * Mer träning på logisk minimering med Karnaugh-diagram.
+* OR- samt NOR-grinden på transistornivå.
 
 ## Mål med lektionen
 * Kunna omvandla mellan olika talsystem.
@@ -40,7 +41,10 @@
 
 ## Bilaga A - Övningsuppgifter
 
-**1.** Härled en minimerad logisk ekvation för utsignal X ur nedanstående sanningstabell via ett Karnaugh-diagram och realisera motsvarande grindnät. Simulera konstruktionen i CircuitVerse.
+**1.** Rita ut en OR-grind med CMOS-transistorer i LTspice.  
+***Tips**: OR-grinden kan implementeras som en NOR-grind i serie med en NOT-grind.*
+
+**2.** Härled en minimerad logisk ekvation för utsignal X ur nedanstående sanningstabell via ett Karnaugh-diagram och realisera motsvarande grindnät. Simulera konstruktionen i CircuitVerse.
 
 | ABC | X |
 |-----|---|
@@ -55,7 +59,7 @@
 
 ---
 
-**2.** Omvandla följande binära tal till deras respektive osignerade decimala samt hexadecimala motsvarigheter:  
+**3.** Omvandla följande binära tal till deras respektive osignerade decimala samt hexadecimala motsvarigheter:  
 **a)** $0001$ $1010_2$    
 **b)** $0111$ $1111_2$  
 **c)** $1101$ $0011_2$  
@@ -63,35 +67,12 @@
 
 ---
 
-**3.** Omvandla följande tal till deras respektive binära motsvarigheter:  
+**4.** Omvandla följande tal till deras respektive binära motsvarigheter:  
 **a)** $49_{10}$  
 **b)** $102_{10}$  
 **c)** $212_{10}$  
 **d)** $AC2_{16}$  
 **e)** $FA452C_{16}$  
-
----
-
-**4.** Härled en minimerad logisk ekvation för utsignal X ur nedanstående sanningstabell via ett Karnaugh-diagram, realisera motsvarande grindnät. Simulera konstruktionen i CircuitVerse.
-
-| ABCD | X |
-|------|---|
-| 0000 | 1 |
-| 0001 | 1 |
-| 0010 | 0 |
-| 0011 | 0 |
-| 0100 | 1 |
-| 0101 | 1 |
-| 0110 | 0 |
-| 0111 | 0 |
-| 1000 | 0 |
-| 1001 | 0 |
-| 1010 | 1 |
-| 1011 | 1 |
-| 1100 | 0 |
-| 1101 | 0 |
-| 1110 | 1 |
-| 1111 | 1 |
 
 ---
 
@@ -104,28 +85,5 @@
 **6.** I nedanstående uppgifter ska 8-bitars 2-komplement användas:  
 **a)** Omvandla $-104_{10}$ till dess 8-bitars binära motsvarighet.  
 **b)** Omvandla det signerade binära talet $1001$ $0100_2$ till dess decimala motsvarighet.  
-
----
-
-**7.** Härled minimerade logiska ekvationer för utsignaler X och Y ur nedanstående sanningstabell via ett Karnaugh-diagram och realisera grindnätet. Simulera konstruktionen i CircuitVerse.
-
-| ABCD | XY |
-|------|----|
-| 0000 | 00 |
-| 0001 | 01 |
-| 0010 | 11 |
-| 0011 | 10 |
-| 0100 | 01 |
-| 0101 | 00 |
-| 0110 | 10 |
-| 0111 | 11 |
-| 1000 | 10 |
-| 1001 | 11 |
-| 1010 | 01 |
-| 1011 | 00 |
-| 1100 | 11 |
-| 1101 | 10 |
-| 1110 | 00 |
-| 1111 | 01 |
 
 ---
