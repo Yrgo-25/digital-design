@@ -13,7 +13,7 @@ Erik Pihl ([erik.axel.pihl@gmail.com](mailto:erik.axel.pihl@gmail.com))
 | 2  | 8/1  | L01 | Kursintroduktion och logiska grindar |
 | 2  | 9/1  | L02 | Algebraisk minimering av logiska grindnät |
 | 3  | 12/1 | L03 | Minimering av logiska grindnät med Karnaugh-diagram |
-| 3  | 14/1 | L03 | Talsystem och 2-komplementsaritmetik |
+| 3  | 14/1 | L03 | Övningslabb |
 | 4  | 19/1 | L04 | **P01** - Praktisk labb med 74-seriegrindar |
 | 5  | 26/1 | L06 | Introduktion till VHDL |
 | 5  | 29/1 | L07 | Syntes samt simulering av grindnät i VHDL (del I) |

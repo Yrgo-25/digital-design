@@ -32,7 +32,7 @@
 * Har ni förslag på förbättringar eller önskemål inför kommande lektioner?
 
 ## Nästa lektion
-* Talsystem och 2-komplementsaritmetik.
+* Övningslabb som förberedelse inför P01.
 * Mer träning på logisk minimering med Karnaugh-diagram.
 * OR- samt NOR-grinden på transistornivå.
 
