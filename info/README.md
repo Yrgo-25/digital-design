@@ -13,12 +13,12 @@ Erik Pihl ([erik.axel.pihl@gmail.com](mailto:erik.axel.pihl@gmail.com))
 | 2  | 8/1  | L01 | Kursintroduktion och logiska grindar |
 | 2  | 9/1  | L02 | Algebraisk minimering av logiska grindnät |
 | 3  | 12/1 | L03 | Minimering av logiska grindnät med Karnaugh-diagram |
-| 3  | 14/1 | L03 | Övningslabb |
-| 4  | 19/1 | L04 | **P01** - Praktisk labb med 74-seriegrindar |
-| 5  | 26/1 | L06 | Introduktion till VHDL |
-| 5  | 29/1 | L07 | Syntes samt simulering av grindnät i VHDL (del I) |
-| 6  | 5/2  | L08 | Syntes samt simulering av grindnät i VHDL (del II) |
-| 6  | 6/2  | L09 | Syntes samt simulering av grindnät i VHDL (del III) |
+| 3  | 14/1 | L04 | Övningslabb (del I) |
+| 4  | 19/1 | L05 | Övningslabb (del II) |
+| 5  | 26/1 | L06 | **P01** - Praktisk labb med 74-seriegrindar |
+| 5  | 29/1 | L07 | Introduktion till VHDL |
+| 6  | 5/2  | L08 | Syntes samt simulering av grindnät i VHDL (del I) |
+| 6  | 6/2  | L09 | Syntes samt simulering av grindnät i VHDL (del II) |
 | 7  | 9/2  | L10 | **P02** - Praktisk labb med kombinatorisk logik i VHDL |
 | 7  | 12/2 | L11 | Konstruktion av komparatorer |
 | 8  | 16/2 | L12 | Konstruktion av multiplexers |

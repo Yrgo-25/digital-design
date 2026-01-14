@@ -1,29 +1,27 @@
-# L08 - Syntes samt simulering av grindnät i VHDL (del II)
+# L08 - Syntes samt simulering av grindnät i VHDL (del I)
 
 ## Dagordning
-* Fördjupad träning i syntes och simulering av grindnät i VHDL.
-* Fördjupad träning i logisk minimering av grindnät.
-* Fördjupad träning i användning av Quartus och ModelSim.
+* Introduktion till testbänkar i VHDL.
+* Övningar grindnät – konstruktion och simulering för hand samt i VHDL.
 
 ## Mål med lektionen
-* Fördjupa sina färdigheter gällande logisk minimering.
-* Fördjupa sina färdigheter gällande syntes samt simulering av kombinatoriska kretsar i VHDL.
-* Fördjupa sina färdigheter gällande användning av Quartus och ModelSim.
+* Kunna konstruera enklare grindnät både för hand samt i VHDL.
+* Kunna simulera realiserat grindnät via simuleringsmjukvara (ModelSim).
 
 ## Förutsättningar
-* Genomgång av L06-L07 för grundläggande kunskaper om VHDL samt installation av programvaror.
+* Genomgång av L07 för grundläggande kunskaper om VHDL samt installation av programvaror.
 
 ## Instruktioner
 
 ### Förberedelse
-* Repetera materialet från L07.
-* Vid behov, se gärna min tutorial [Syntes och simulering i VHDL](https://www.youtube.com/watch?v=gtaaarLyeXQ&authuser=0), som behandlar just syntes (konstruktion) samt simulering av ett bromsassistanssystem för fordon via ADAS (`Advanced Driver Assistance System`).
+* Repetera grunderna i VHDL från [föregående lektion](../L07/README.md#bilaga-a---grundläggande-koncept-i-vhdl).
+* Se gärna min tutorial [Syntes och simulering i VHDL](https://www.youtube.com/watch?v=9ibUE7czpc4&authuser=0), som behandlar just syntes (konstruktion) samt simulering av en 3-ingångars XOR-grind i VHDL.
 
 ### Under lektionen
 * Genomför bifogade [övningsuppgifter](#bilaga-a---övningsuppgifter) nedan.
 
 ### Demonstration
-* Varje del av övningsuppgiften gås igenom i helklass efter att ni fått tid att implementera den på egen hand.
+* Skapande av testbänk för OR-grinden som konstruerades föregående lektion.
 
 ## Utvärdering
 * Vad tyckte ni var mest intressant eller lärorikt under lektionen?
@@ -32,37 +30,31 @@
 
 ## Nästa lektion
 * Fördjupad träning i syntes och simulering av grindnät i VHDL.
-* Fördjupad träning i logisk minimering av grindnät.
-* Fördjupad träning i användning av Quartus och ModelSim.
 
 ---
 
 ## Bilaga A - Övningsuppgifter
 
-Realisera grindnätet för en 4-bitars "adderare" bestående av fyra insignaler $ABCD$ samt tre utsignaler $XYZ$, både för hand samt via VHDL-kod. 
-
-**OBS!** Detta grindnät är inte en traditionell binär adderare, utan en så kallad "population counter", som summerar antalet ettor bland insignalerna $ABCD$ och presenterar resultatet som ett 3-bitars binärt tal via utsignaler $XYZ$.
-
-Grindnätets sanningstabell visas nedan:
+Realisera grindnätet för en krets bestående av fyra insignaler $ABCD$ samt tre utsignaler $XYZ$, både för hand samt via VHDL-kod. Grindnätets sanningstabell visas nedan:
 
 | ABCD | XYZ |   
 |------|-----|
-| 0000 | 000 |
-| 0001 | 001 |
+| 0000 | 001 |
+| 0001 | 010 |
 | 0010 | 001 |
-| 0011 | 010 |
-| 0100 | 001 |
-| 0101 | 010 |
-| 0110 | 010 |
-| 0111 | 011 |
-| 1000 | 001 |
-| 1001 | 010 |
-| 1010 | 010 |
-| 1011 | 011 |
-| 1100 | 010 |
-| 1101 | 011 |
-| 1110 | 011 |
-| 1111 | 100 |
+| 0011 | 011 |
+| 0100 | 100 |
+| 0101 | 110 |
+| 0110 | 100 |
+| 0111 | 111 |
+| 1000 | 101 |
+| 1001 | 110 |
+| 1010 | 101 |
+| 1011 | 111 |
+| 1100 | 000 |
+| 1101 | 010 |
+| 1110 | 000 |
+| 1111 | 011 |
 
 **1.** Finn minimerade logiska ekvationer för utsignaler $X$, $Y$ och $Z$ via användning av Karnaugh-diagram eller ekvationer. 
 

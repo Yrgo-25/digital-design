@@ -1,4 +1,4 @@
-# L04 - Övningslabb
+# L04 - Övningslabb (del I)
 
 ## Dagordning
 * Övningslabb som förberedelse inför P01.
@@ -15,7 +15,6 @@
 ## Instruktioner
 
 ### Förberedelse
-* Läs [1.2 - Talsystem](../../tutorials/docs/1.2%20-%20Talsystem.pdf) för information om vanliga talsystem samt 2-komplementsrepresentation.
 * Se information om 74-seriegrindar [här](https://www.build-electronic-circuits.com/7400-series-integrated-circuits/). 
 Kolla specifikt databladet för AND, OR-, NAND- och NOR-grinden, vilket är de grindar som finns tillgängliga under labben:
     * [74x00 - NAND](https://www.build-electronic-circuits.com/7400-series-integrated-circuits/74hc00-74ls00/)
@@ -30,10 +29,9 @@ Kolla specifikt databladet för AND, OR-, NAND- och NOR-grinden, vilket är de g
 
 ## Utvärdering
 * Vad tyckte ni var mest intressant eller lärorikt under lektionen?
-* Känner ni er trygga inför P01?
 
 ## Nästa lektion
-* **P01** - Praktisk labb med 74-seriegrindar.
+* Fortsättning på övningslabben.
 
 ---
 

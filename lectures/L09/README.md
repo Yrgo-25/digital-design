@@ -1,4 +1,4 @@
-# L09 - Syntes samt simulering av grindnät i VHDL (del III)
+# L09 - Syntes samt simulering av grindnät i VHDL (del II)
 
 ## Dagordning
 * Fördjupad träning i syntes och simulering av grindnät i VHDL.
@@ -6,17 +6,17 @@
 * Fördjupad träning i användning av Quartus och ModelSim.
 
 ## Mål med lektionen
-* Känna sig bekväm med logisk minimering av kombinatoriska kretsar.
-* Känna sig bekväm med syntes samt simulering av kombinatoriska kretsar i VHDL.
-* Känna sig bekväm med Quartus och ModelSim.
+* Fördjupa sina färdigheter gällande logisk minimering.
+* Fördjupa sina färdigheter gällande syntes samt simulering av kombinatoriska kretsar i VHDL.
+* Fördjupa sina färdigheter gällande användning av Quartus och ModelSim.
 
 ## Förutsättningar
-* Genomgång av L06-L08 för grundläggande kunskaper om VHDL samt installation av programvaror.
+* Genomgång av L07-L08 för grundläggande kunskaper om VHDL samt installation av programvaror.
 
 ## Instruktioner
 
 ### Förberedelse
-* Repetera materialet från lektioner L07-L08.
+* Repetera materialet från L08.
 * Vid behov, se gärna min tutorial [Syntes och simulering i VHDL](https://www.youtube.com/watch?v=gtaaarLyeXQ&authuser=0), som behandlar just syntes (konstruktion) samt simulering av ett bromsassistanssystem för fordon via ADAS (`Advanced Driver Assistance System`).
 
 ### Under lektionen
@@ -27,55 +27,51 @@
 
 ## Utvärdering
 * Vad tyckte ni var mest intressant eller lärorikt under lektionen?
-* Börjar ni känna er bekanta med syntes och simulering av kombinatoriska kretsar i VHDL?
-* Börjar ni känna er bekanta med använda verktyg (Quartus samt ModelSim)?
+* Känner ni att ni förstår hur man konstruerar och simulerar grindnät både för hand samt i VHDL?
 * Har ni förslag på förbättringar eller önskemål inför kommande lektioner?
 
 ## Nästa lektion
-* **P02** - Praktisk labb med kombinatorisk logik i VHDL.
+* Fördjupad träning i syntes och simulering av grindnät i VHDL.
+* Fördjupad träning i logisk minimering av grindnät.
+* Fördjupad träning i användning av Quartus och ModelSim.
 
 ---
 
 ## Bilaga A - Övningsuppgifter
 
-Realisera grindnätet för en dividerare, som dividerar två 2-bitars insignaler AB samt CD. Resultatet erhålles via fyra bitar XYZW, där XY utgör heltalsdel och ZW utgör decimaldel. Därmed gäller att
+Realisera grindnätet för en 4-bitars "adderare" bestående av fyra insignaler $ABCD$ samt tre utsignaler $XYZ$, både för hand samt via VHDL-kod. 
 
-```man
-XYZW = \frac{AB}{CD} = XY.ZW
-```
+**OBS!** Detta grindnät är inte en traditionell binär adderare, utan en så kallad "population counter", som summerar antalet ettor bland insignalerna $ABCD$ och presenterar resultatet som ett 3-bitars binärt tal via utsignaler $XYZ$.
 
-där XYZW utgör grindnätets utsignal och ABCD utgör insignalerna.
+Grindnätets sanningstabell visas nedan:
 
-**1.** Rita en sanningstabell och finn minimerade logiska ekvationer för utsignaler $X$, $Y$, $Z$ och $W$ via användning av Karnaugh-diagram eller ekvationer. Vid behov, avrunda till två decimaler.
+| ABCD | XYZ |   
+|------|-----|
+| 0000 | 000 |
+| 0001 | 001 |
+| 0010 | 001 |
+| 0011 | 010 |
+| 0100 | 001 |
+| 0101 | 010 |
+| 0110 | 010 |
+| 0111 | 011 |
+| 1000 | 001 |
+| 1001 | 010 |
+| 1010 | 010 |
+| 1011 | 011 |
+| 1100 | 010 |
+| 1101 | 011 |
+| 1110 | 011 |
+| 1111 | 100 |
+
+**1.** Finn minimerade logiska ekvationer för utsignaler $X$, $Y$ och $Z$ via användning av Karnaugh-diagram eller ekvationer. 
 
 **2.** Rita grindnätet och verifiera att det fungerar som tänkt via simulering i CircuitVerse.
 
 **3.** Realisera projektet via hårdvarubeskrivande kod i VHDL.  
-Anslut 
-* insignaler $ABCD$ till slide-switchar `SWITCH[3:0]`, 
-* utsignaler $XY$ (heltalsdelen) till lysdioder `LED[4:3]`,
-* utsignaler $ZW$ till lysdioder `LED[1:0]`.
-
-**Notering**: Använd inte `LED2` för att separera heltals- och decimaldelen.
+Anslut insignaler $ABCD$ till slide-switchar `SWITCH[3:0]` och utsignaler $XYZ$ till lysdioder 
+`LED[2:0]` på FPGA-kortet. 
 
 **4.** Skapa en testbänk och genomför simulering av hårdvaran i ModelSim för samtliga binära kombinationer av insignaler $ABCD$. Testkör varje kombination under $10$ $ns$.
-
-### Tips 
-Vid fixpunktsaritmetik minskar värdet på bitarna i decimaldelen med en faktor två för varje steg åt höger, där den mest signifikanta decimalbiten är värd $\frac{1}{2} = 0.5$, andra biten $\frac{1}{4} = 0.25$, tredje biten $\frac{1}{8} = 0.125$ och så vidare. 
-
-Därmed gäller att:
-* Decimaldelen $00$ är ekvivalent med $0 + 0 = 0.0$.
-* Decimaldelen $01$ är ekvivalent med $0 + 0.25 = 0.25$.
-* Decimaldelen $10$ är ekvivalent med $0.5 + 0 = 0.5$.
-* Decimaldelen $11$ är ekvivalent med $0.5 + 0.25 = 0.75$.
-
-#### Exempel på division med fixpunktsaritmetik 
-Divisionen $\frac{3}{2} = 1.5$ skrivs på binär form enligt följande:
-
-```math
-\frac{11_2}{10_2} = 01.10
-```
-
-där heltalsdelen $01_2$ motsvarar heltalet $1$ och decimaldelen $10$ motsvarar flyttalet $0.5$.
 
 ---

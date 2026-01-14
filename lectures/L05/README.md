@@ -1,20 +1,19 @@
-# L05 - Praktisk labb med 74-seriegrindar
+# L05 - Övningslabb (del II)
 
 ## Dagordning
-* Genomförande av **P01**, vilket innefattar konstruktion av en logisk krets med 74-seriegrindar.
+* Slutförande av övningslabb som förberedelse inför P01.
 
 ## Mål med lektionen
 * Kunna realisera en logisk krets med hjälp av 74-seriegrindar.
 * Förstå varför hårdvarubeskrivande språk används för att implementera digitala kretsar.
 
 ## Förutsättningar
-* Genomgång av L01-L04 för kunskaper om logiska grindnät.
+* Genomgång av L03-L04 för kunskap om minimering av logiska grindnät med Karnaugh-diagram.
+* Grundläggande färdigheter i [CircuitVerse](https://circuitverse.org/simulator).
 
 ## Instruktioner
 
 ### Förberedelse
-* Gå igenom tidigare lektioner.
-* Förbered labbuppgifterna hemma - ta fram logiska ekvationer och simulera kretsarna i CircuitVerse.
 * Se information om 74-seriegrindar [här](https://www.build-electronic-circuits.com/7400-series-integrated-circuits/). 
 Kolla specifikt databladet för AND, OR-, NAND- och NOR-grinden, vilket är de grindar som finns tillgängliga under labben:
     * [74x00 - NAND](https://www.build-electronic-circuits.com/7400-series-integrated-circuits/74hc00-74ls00/)
@@ -24,15 +23,13 @@ Kolla specifikt databladet för AND, OR-, NAND- och NOR-grinden, vilket är de g
 * **Tips**: En NOT-grind med insignal $A$ samt utsignal $X$ kan implementeras genom att koppla $A$ till båda ingångarna på en NAND-grind. Utsignalen $X$ blir då $(A * A)' = A'$.
 
 ### Under lektionen
-* Labbuppgiften ska genomföras självständigt.
-* Ställ frågor vid behov.
+* Genomför bifogad [övningslabb](./P01%20exempel%20-%20Logiska%20grindnät%20med%2074-serien.pdf).
 
 ## Utvärdering
-* Hur upplevde ni att realisera ett logiskt grindnät i fysisk hårdvara?
-* Förstår ni varför hårdvarubeskrivande språk föredras framför manuell uppkoppling när kretsarna blir mer komplexa?
+* Vad tyckte ni var mest intressant eller lärorikt under lektionen?
+* Känner ni er trygga inför P01?
 
 ## Nästa lektion
-* Installation av Quartus och ModelSim.
-* Introduktion till VHDL – syntes av en OR-grind.
+* **P01** - Praktisk labb med 74-seriegrindar.
 
 ---
