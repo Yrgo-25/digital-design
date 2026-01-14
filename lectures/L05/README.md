@@ -19,7 +19,7 @@
 Kolla specifikt databladet för AND, OR-, NAND- och NOR-grinden, vilket är de grindar som finns tillgängliga under labben:
     * [74x00 - NAND](https://www.build-electronic-circuits.com/7400-series-integrated-circuits/74hc00-74ls00/)
     * [74x02 - NOR](https://www.build-electronic-circuits.com/7400-series-integrated-circuits/74hc02-74ls02/)
-    * [74x08 - NAND](https://www.build-electronic-circuits.com/7400-series-integrated-circuits/74hc08-74ls08/)
+    * [74x08 - AND](https://www.build-electronic-circuits.com/7400-series-integrated-circuits/74hc08-74ls08/)
     * [74x32 - OR](https://www.build-electronic-circuits.com/7400-series-integrated-circuits/74hc32-74ls32/)
 * **Tips**: En NOT-grind med insignal $A$ samt utsignal $X$ kan implementeras genom att koppla $A$ till båda ingångarna på en NAND-grind. Utsignalen $X$ blir då $(A * A)' = A'$.
 
