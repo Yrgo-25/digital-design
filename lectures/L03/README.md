@@ -126,6 +126,8 @@ Motsvarande grindnät visas nedan:
 **1.** Rita ut en AND-grind med CMOS-transistorer i LTspice.  
 ***Tips**: AND-grinden kan implementeras som en NAND-grind i serie med en NOT-grind.*
 
+Lösningsförslag finns [här](./solutions/exercise1/README.md).
+
 ---
 
 **2.** Härled en minimerad logisk ekvation för utsignal X ur nedanstående sanningstabell via ett Karnaugh-diagram och realisera motsvarande grindnät. Simulera konstruktionen i CircuitVerse.
@@ -140,6 +142,8 @@ Motsvarande grindnät visas nedan:
 | 101 | 1 |
 | 110 | 0 |
 | 111 | 0 |
+
+Lösningsförslag finns [här](./solutions/exercise2/README.md).
 
 ---
 
@@ -164,27 +168,6 @@ Motsvarande grindnät visas nedan:
 | 1110 | 1 |
 | 1111 | 0 |
 
----
-
-**4.** Härled minimerade logiska ekvationer för utsignaler X och Y ur nedanstående sanningstabell via ett Karnaugh-diagram och realisera grindnätet. Simulera konstruktionen i CircuitVerse.
-
-| ABCD | XY |
-|------|----|
-| 0000 | 01 |
-| 0001 | 00 |
-| 0010 | 00 |
-| 0011 | 01 |
-| 0100 | 11 |
-| 0101 | 10 |
-| 0110 | 10 |
-| 0111 | 11 |
-| 1000 | 11 |
-| 1001 | 10 |
-| 1010 | 10 |
-| 1011 | 11 |
-| 1100 | 01 |
-| 1101 | 00 |
-| 1110 | 00 |
-| 1111 | 01 |
+Lösningsförslag finns [här](./solutions/exercise3/README.md).
 
 ---
