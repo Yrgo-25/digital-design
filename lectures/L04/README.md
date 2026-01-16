@@ -40,17 +40,31 @@ Kolla specifikt databladet för AND, OR-, NAND- och NOR-grinden, vilket är de g
 **1.** Rita ut en OR-grind med CMOS-transistorer i LTspice.  
 ***Tips**: OR-grinden kan implementeras som en NOR-grind i serie med en NOT-grind.*
 
-**2.** Härled en minimerad logisk ekvation för utsignal X ur nedanstående sanningstabell via ett Karnaugh-diagram och realisera motsvarande grindnät. Simulera konstruktionen i CircuitVerse.
+Lösningsförslag finns [här](./solutions/exercise1/README.md).
 
-| ABC | X |
-|-----|---|
-| 000 | 0 |
-| 001 | 1 |
-| 010 | 0 |
-| 011 | 1 |
-| 100 | 1 |
-| 101 | 0 |
-| 110 | 1 |
-| 111 | 0 |
+---
+
+**2.** Härled minimerade logiska ekvationer för utsignaler X och Y ur nedanstående sanningstabell via ett Karnaugh-diagram och realisera grindnätet. Simulera konstruktionen i CircuitVerse.
+
+| ABCD | XY |
+|------|----|
+| 0000 | 01 |
+| 0001 | 00 |
+| 0010 | 00 |
+| 0011 | 01 |
+| 0100 | 11 |
+| 0101 | 10 |
+| 0110 | 10 |
+| 0111 | 11 |
+| 1000 | 11 |
+| 1001 | 10 |
+| 1010 | 10 |
+| 1011 | 11 |
+| 1100 | 01 |
+| 1101 | 00 |
+| 1110 | 00 |
+| 1111 | 01 |
+
+Lösningsförslag finns [här](./solutions/exercise2/README.md).
 
 ---
