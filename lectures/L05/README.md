@@ -23,7 +23,7 @@ Kolla specifikt databladet för AND, OR-, NAND- och NOR-grinden, vilket är de g
 * **Tips**: En NOT-grind med insignal $A$ samt utsignal $X$ kan implementeras genom att koppla $A$ till båda ingångarna på en NAND-grind. Utsignalen $X$ blir då $(A * A)' = A'$.
 
 ### Under lektionen
-* Genomför bifogad [övningslabb](./P01%20exempel%20-%20Logiska%20grindnät%20med%2074-serien.pdf).
+* Genomför bifogad [övningslabb](../L04/P01%20exempel%20-%20Logiska%20grindnät%20med%2074-serien.pdf).
 
 ## Utvärdering
 * Vad tyckte ni var mest intressant eller lärorikt under lektionen?
