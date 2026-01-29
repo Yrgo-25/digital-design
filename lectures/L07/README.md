@@ -34,6 +34,8 @@ instruktioner [här](../../manuals/Installation%20och%20konfiguration%20av%20Qua
 
 ![`Memory integrity option`](./images/mem_integrity.png)
 
+* Lektionsanteckningar finns [här](./notes/README.md).
+
 ### Demonstration
 * Installation av Quartus Prime Lite 20.1, ModelSim samt drivrutiner för FPGA-kortet.
 * Implementering av en OR-grind, syntes och flashning till FPGA-kort.
