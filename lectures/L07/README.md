@@ -23,12 +23,14 @@ Ladda ned följande installationsfiler:
 ### Under lektionen
 Vi kommer använda FPGA-kortet Terasic DE0 i denna kurs. FPGA-kretsen på kortet heter `5CEBA4F23C7`. Kortets manual finns [här](../../manuals/DE0%20User%20ManuaL.pdf).
 * Läs [Bilaga A](#bilaga-a---grundläggande-koncept-i-vhdl) nedan för information om grundläggande koncept i VHDL.
+* Läs [Bilaga B](#bilaga-b---vad-är-en-fpga) för grundläggande information om FPGA:er.
 * Se gärna min tutorial [Syntes och simulering i VHDL](https://www.youtube.com/watch?v=9ibUE7czpc4&authuser=0), som behandlar just
 syntes (konstruktion) samt simulering av en 3-ingångars XOR-grind i VHDL.
 * Installation av Quartus samt drivrutiner för FPGA-kortet kommer ske under lektionstid. Vill ni genomföra installationen innan dess finns 
 instruktioner [här](../../manuals/Installation%20och%20konfiguration%20av%20Quartus%20Lite%2018.1%20och%20ModelSim.pdf).
-* ***OBS!** En del extra säkerhetsmekanismer har lagts till i Windows 11, vilket kan förhindra att flashning till FPGA-kort fungerar.
-Om du har följt instruktionerna punkt till pricka och du ändå inte kan flasha till FPGA-kortet, dirigera till `System settings -> Core isolation` och inaktivera `Memory integrity` på din dator, så som visas nedan:*
+* **OBS!** En del extra säkerhetsmekanismer har lagts till i Windows 11, vilket kan förhindra att flashning till FPGA-kort fungerar:
+    * Stäng av `Smart App Control` om installationsfilerna inte går att öppna. Skriv Smart App Control i Windows-sökrutan och kryssa i `Off`, starta sedan om datorn.
+    * Om du har följt instruktionerna punkt till pricka och du ändå inte kan flasha till FPGA-kortet, dirigera till `System settings -> Core isolation` och inaktivera `Memory integrity` på din dator, så som visas nedan:
 
 ![`Memory integrity option`](./images/mem_integrity.png)
 
@@ -104,7 +106,7 @@ end architecture;
 ***Notering:** Arkitekturens namn kan väljas godtyckligt.*
 
 ### Datatypen `std_logic`
-* Datatypen `std_logic` används signaler som ska kunna anta logiska värden $0$ och $1$ samt övriga värden som behövs för att realisera  digitala signaler i praktiken, såsom högohmig/tri-state ($Z$), don't care ($-$) med mera.  
+* Datatypen `std_logic` används för signaler som ska kunna anta logiska värden $0$ och $1$ samt övriga värden som behövs för att realisera  digitala signaler i praktiken, såsom högohmig/tri-state ($Z$), don't care ($-$) med mera.  
 * `std_logic` utgör ett utmärkt val för signaler och variabler som ska tilldelas en eller flera bitar (för fler bitar används datatypen  `std_logic_vector`, vilket är en vektor med bitar).  
 
 #### Exempel
@@ -182,5 +184,36 @@ begin
        x <= a or ((not b) and c and d);
 end architecture;
 ```
+
+---
+
+## Bilaga B - Vad är en FPGA?
+
+### Vad är en FPGA?
+En FPGA (Field-Programmable Gate Array) är ett digitalt kretschip, som kan konfigureras efter tillverkning för att implementera valfri digital logik. Istället för att bygga en fast krets av grindar kan man programmera hur hårdvaran ska kopplas ihop. Detta är utmärkt för prototyper samt för hårdvara som måste uppdateras ofta.
+
+
+### FPGA i ett nötskal
+En FPGA består i huvudsak av:
+* Konfigurerbara logikblock (som kan fungera som grindar, multiplexrar, räknare och så vidare).
+* Programmerbara kopplingar mellan dessa block.
+* In- och utportar för kommunikation med omvärlden.
+
+När hårdvarubeskrivande kod, i denna kurs VHDL, syntetiseras översätts den till ett logiknät som implementeras med FPGA:ns konfigurerbara logikblock och programmerbara kopplingar enligt följande flöde:
+
+```bash
+VHDL ⇒ syntes ⇒ logiknät ⇒ implementation ⇒ konfigurationsfil ⇒ FPGA-hårdvara
+```
+
+Genom att ladda en konfigurationsfil, framtagen från hårdvarubeskrivande kod, bestämmer man hur FPGA:ns logikblock ska bete sig och hur de ska kopplas samman. På så sätt kan digitala kretsar realiseras direkt i hårdvara.
+
+### Parallellitet
+All logik i en FPGA arbetar parallellt. Om man beskriver två oberoende logiska funktioner i VHDL kommer de också att exekveras samtidigt i hårdvara, till skillnad från mjukvara som körs sekventiellt på en CPU (så länge inte flertrådning används).
+
+### Sammanfattning
+* FPGA:er är omkonfigurerbar digital hårdvara och passar utmärkt för prototyper.
+* VHDL används för att beskriva struktur och beteende hos hårdvaran.
+* Koden realiseras som logik som funktionellt motsvarar grindar och kopplingar, implementerad med FPGA:ns interna resurser.
+* Allt sker parallellt, precis som i logiska nät.
 
 ---
