@@ -17,3 +17,4 @@ Material från föreläsningar:
 * [L14](./L14/README.md): **D01** - VHDL teori (del I).
 * [L15](./L15/README.md): Delkomponenter i VHDL, 7-segmentsdisplayer (del I).
 * [L16](./L16/README.md): Delkomponenter i VHDL, 7-segmentsdisplayer (del II).
+* [L17](./L17/README.md): D-latchen och D-vippan.
