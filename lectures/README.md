@@ -19,3 +19,4 @@ Material från föreläsningar:
 * [L16](./L16/README.md): Delkomponenter i VHDL, 7-segmentsdisplayer (del II).
 * [L17](./L17/README.md): D-latchen och D-vippan.
 * [L18](./L18/README.md): Synkrona processers mall.
+* [L19](./L19/README.md): Flankdetektering med D-vippor (del I).

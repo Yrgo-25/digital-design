@@ -24,7 +24,7 @@ Videon kommer starta på tiden 01:30:50, vilket är då flankdetekteringsdelen b
 * Varje del av övningsuppgiften gås igenom i helklass efter att ni fått tid att implementera den på egen hand.
 
 ## Utvärdering
-* Vad är de primära fördelarna med vippor framför latchar inom digitala system?
+* Förklara hur flanktetektering kan implementeras via seriekopplade D-vippor i digitala system.
 
 ## Nästa lektion
 * Vidare arbete med flankdetektering med D-vippor.
@@ -33,7 +33,7 @@ Videon kommer starta på tiden 01:30:50, vilket är då flankdetekteringsdelen b
 
 ## Bilaga A - Övningsuppgifter
 
-**1.**  Du ska konstruera ett synkront digitalt system toggling av en lysdiod via en tryckknapp. Systemet ska inneha följande portar: 
+**1.**  Du ska konstruera ett synkront digitalt system för toggling av en lysdiod via en tryckknapp. Systemet ska inneha följande portar: 
 * Insignal $clock$ ska utgöras av en systemklocka med godtycklig frekvens (dock 50 MHz på FPGA-kortet).
 * Insignal $reset\_n$ ska utgöras av en asynkron inverterande reset-signal. När $reset\_n$ är låg ska systemåterställning ske, oavsett systemklockans tillstånd.
 * Insignal $button\_n$ ska utgöras av en inverterande tryckknapp, som vid nedtryckning (fallande flank) togglar en lysdiod.
@@ -45,7 +45,7 @@ Kretsen ska implementeras synkront med en asynkron reset:
 
 **a)** Realisera motsvarande grindnät för hand och simulera i CircuitVerse. Sätt klockans periodtid till $1000$ $ms$. 
 
-**b)** Testa att toggla lysdioden via genom att trycka ned $button\_n$. Sker togglingen direkt eller dröjer det tills klockan slår? 
+**b)** Testa att toggla lysdioden genom att trycka ned $button\_n$. Sker togglingen direkt eller dröjer det tills klockan slår? 
 
 **c)** Implementera konstruktionen i VHDL via en modul döpt $led\_toggle2$:
 * Välj FPGA-kort Terasic DE0 (enhet 5CEBA4F23C7).
