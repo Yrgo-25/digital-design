@@ -20,3 +20,4 @@ Material från föreläsningar:
 * [L17](./L17/README.md): D-latchen och D-vippan.
 * [L18](./L18/README.md): Synkrona processers mall.
 * [L19](./L19/README.md): Flankdetektering med D-vippor (del I).
+* [L20](./L20/README.md): Flankdetektering med D-vippor (del II).
