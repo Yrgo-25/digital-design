@@ -22,3 +22,4 @@ Material från föreläsningar:
 * [L19](./L19/README.md): Flankdetektering med D-vippor (del I).
 * [L20](./L20/README.md): Flankdetektering med D-vippor (del II).
 * [L21](./L21/README.md): Förebyggande av metastabilitet med vippor.
+* [L22](./L22/README.md): **P03** - Praktisk labb med synkron logik i VHDL.
