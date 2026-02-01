@@ -7,7 +7,7 @@
 * Förstå och kunna tillämpa grundläggande VHDL-teori, inklusive syntax, struktur och vanliga konstruktioner.
 
 ## Förutsättningar
-* Genomgång av L06 - L13 för grundläggande kunskaper om VHDL.
+* Genomgång av L07 - L13 för grundläggande kunskaper om VHDL.
 
 ## Instruktioner
 
