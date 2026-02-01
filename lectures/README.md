@@ -24,3 +24,4 @@ Material från föreläsningar:
 * [L21](./L21/README.md): Förebyggande av metastabilitet med vippor.
 * [L22](./L22/README.md): **P03** - Praktisk labb med synkron logik i VHDL.
 * [L23](./L23/README.md): Konstruktion av timerkretsar (del I).
+* [L24](./L24/README.md): Konstruktion av timerkretsar (del II).
