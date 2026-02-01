@@ -19,8 +19,8 @@ Erik Pihl ([erik.axel.pihl@gmail.com](mailto:erik.axel.pihl@gmail.com))
 | 5  | 29/1 | L07 | Introduktion till VHDL |
 | 6  | 5/2  | L08 | Syntes samt simulering av grindnät i VHDL (del I) |
 | 6  | 6/2  | L09 | Syntes samt simulering av grindnät i VHDL (del II) |
-| 7  | 9/2  | L10 | **P02** - Praktisk labb med kombinatorisk logik i VHDL |
-| 7  | 12/2 | L11 | Konstruktion av komparatorer |
+| 7  | 9/2  | L10 | Konstruktion av komparatorer |
+| 7  | 12/2 | L11 | **P02** - Praktisk labb med kombinatorisk logik i VHDL|
 | 8  | 16/2 | L12 | Konstruktion av multiplexers |
 | 8  | 19/2 | L13 | Konstruktion av AD-omvandlare med prioritetsavkodare |
 | 9  | 23/2 | L14 | **D01** - VHDL teori (del I) |

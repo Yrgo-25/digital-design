@@ -31,9 +31,7 @@
 * Har ni förslag på förbättringar eller önskemål inför kommande lektioner?
 
 ## Nästa lektion
-* Fördjupad träning i syntes och simulering av grindnät i VHDL.
-* Fördjupad träning i logisk minimering av grindnät.
-* Fördjupad träning i användning av Quartus och ModelSim.
+* Konstruktion av komparatorer.
 
 ---
 
