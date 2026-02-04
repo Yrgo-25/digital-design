@@ -27,3 +27,4 @@ Material från föreläsningar:
 * [L24](./L24/README.md): Konstruktion av timerkretsar (del II).
 * [L25](./L25/README.md): **D02** - VHDL teori (del II).
 * [L26](./L26/README.md): Konstruktion av tillståndsmaskiner (del I).
+* [L27](./L27/README.md): Konstruktion av tillståndsmaskiner (del II).
