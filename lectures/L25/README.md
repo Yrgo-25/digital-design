@@ -21,6 +21,6 @@
 * Duggan tilldelas i början av lektionen.
 
 ## Nästa lektion
-* Konstruktion av tillståndsmaskiner (del I).
+* Konstruktion av tillståndsmaskiner för hand.
 
 ---
