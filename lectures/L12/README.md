@@ -10,7 +10,7 @@
 * Få mängdträna klassisk digitalteknik samt syntes och simulering i VHDL.
 
 ## Förutsättningar
-* Genomgång av L06 - L11 för kunskaper om syntes och simulering i VHDL.
+* Genomgång av L07 - L11 för kunskaper om syntes och simulering i VHDL.
 
 ## Instruktioner
 
@@ -64,7 +64,7 @@ end case;
 
 ***OBS!** Apostrofer används runt enskilda bitar i VHDL, så '0' innebär en bit som är lika med 0.*
 
-Case-satsen måste placeras i ett sekventiellt block, vilket kallas `process` i VHDL. Processer har tidigare presenterats under [L06](../L06/README.md#process).
+Case-satsen måste placeras i ett sekventiellt block, vilket kallas `process` i VHDL. Processer har tidigare presenterats under [L07](../L07/README.md#process).
 
 Nedan visas case-satsen placerad i en process, som aktiveras för förändring av `a`, `b` och `sel`.  
 Om värdet på någon av dessa portar ändras kommer då följande block att exekvera:

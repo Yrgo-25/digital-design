@@ -12,7 +12,7 @@
 ## Instruktioner
 
 ### Förberedelse
-* Repetera grundläggande koncept i VHDL [här](../L06/README.md#bilaga-a---grundläggande-koncept-i-vhdl).
+* Repetera grundläggande koncept i VHDL [här](../L07/README.md#bilaga-a---grundläggande-koncept-i-vhdl).
 * Repetera case-satsen [här](../L12/README.md#case-satsen-i-vhdl).
 * Repetera syntes samt simulering i VHDL via genomförda konstruktioner under L07 - L14.
 

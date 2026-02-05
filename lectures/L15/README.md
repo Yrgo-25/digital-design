@@ -8,7 +8,7 @@
 * Känna till hur binärkoder för 7-segmentsdisplayer fungerar.
 
 ## Förutsättningar
-* Genomgång av L06 - L14 för grundläggande kunskaper om VHDL.
+* Genomgång av L07 - L14 för grundläggande kunskaper om VHDL.
 
 ## Instruktioner
 
@@ -71,7 +71,7 @@ end architecture;
 ### 1. Hexadecimala 7-segmentsdisplayer
 
 Du ska konstruera ett digitalt system innehållande två 7-segmentsdisplayer samt åtta slide-switchar.  
-På respektive 7-segmentsdisplay ska ett hexadecimalt tal $0-F$ visas. Talet som skrivs ut ska matas in biärt via fyra slide-switchar.
+På respektive 7-segmentsdisplay ska ett hexadecimalt tal `0-F` visas. Talet som skrivs ut ska matas in biärt via fyra slide-switchar.
 
 Eftersom två displayer används krävs totalt
 * fyra switchar för den första displayen,
@@ -97,8 +97,6 @@ När konstruktionen är slutförd ska
 ---
 
 **a)** Skapa ett projekt döpt `hex_display` i Quartus:  
-* Placera projektet i en ny underkatalog `c/quartus/hex_display`.
-* Döpt projektet till samma namn som toppmodulen (`hex_display`).
 * Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`).  
 
 **b)** Lägg till toppmodulen hex_display innehållande följande portar:  
@@ -126,7 +124,7 @@ Som exempel:
 * Om `number[3:0]` matas med talet $0111_2$ ska binärkoden för talet $7_{16}$ skrivas till `hex[6:0]`.
 * Om `number[3:0]` matas med talet $1110_2$ ska binärkoden för talet $E_{16}$ skrivas till `hex[6:0]`.
 
-För att åstadkomma detta ska 7-segmentsdisplayen matas med motsvarande binärkod. Ni har tillgång till binärkoder för siffror $0 - 9$ nedan, resten (för $A - F$) måste ni lägga till själva:
+För att åstadkomma detta ska 7-segmentsdisplayen matas med motsvarande binärkod. Ni har tillgång till binärkoder för siffror `0-9` nedan, resten (för `A-F`) måste ni lägga till själva:
 
 ```vhdl
 constant DISPLAY_0  : std_logic_vector(6 downto 0) := "1000000";
@@ -155,7 +153,7 @@ För respektive instans ska fyra 7-segmentsdisplayer anslutas till `input[3:0]` 
 
 Kompilera om koden och korrigera eventuella fel.
 
-**e)** Skapa en testbänk för modulen `display` och döp denna `display_tb`. Testa samtliga 16 kombinationer $0000 – 1111$ av `number[3:0]` och kontrollera att binärkoden som skrivs till `hex[6:0]` är korrekt (jämför med de framtagna binärkoderna).
+**e)** Skapa en testbänk för modulen `display` och döp denna `display_tb`. Testa samtliga 16 kombinationer `0000–1111` av `number[3:0]` och kontrollera att binärkoden som skrivs till `hex[6:0]` är korrekt (jämför med de framtagna binärkoderna).
 
 **f)** Verifiera konstruktionen på ett FPGA-kort. 
 

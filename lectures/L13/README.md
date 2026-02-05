@@ -9,7 +9,7 @@
 * Känna till prioritetsavkodarens konstruktion.
 
 ## Förutsättningar
-* Genomgång av L06 - L12 för kunskaper om syntes och simulering i VHDL.
+* Genomgång av L07 - L12 för kunskaper om syntes och simulering i VHDL.
 
 ## Instruktioner
 
@@ -35,8 +35,8 @@
 
 Vi ska realisera en 2-bitars prioritetsavkodare, som under lektion ska användas i en AD-omvandlare konstruerad i LTspice.
 
-Prioritetsavkodaren ska ha fyra insignaler ABCD samt två utsignaler XY.  
-Prioritetsavkodaren bryr sig endast om den mest signifikanta höga insignalen i ABCD.
+Prioritetsavkodaren ska ha fyra insignaler `ABCD` samt två utsignaler `XY`.  
+Prioritetsavkodaren bryr sig endast om den mest signifikanta höga insignalen i `ABCD`.
 
 Prioritetsavkodarens sanningstabell visas nedan:
 
@@ -75,18 +75,17 @@ Ovanstående sanningstabell kan därmed förenklas med "don't care"-värden sås
 ---
 
 
-**a)** Ta fram minimerade ekvationer för utsignalerna X och Y via någon av sanningstabellerna ovan.
+**a)** Ta fram minimerade ekvationer för utsignalerna `X` och `Y` via någon av sanningstabellerna ovan.
 
-**b)** Simulera grindnätet i CircuitVerse, verifiera att konstruktionen fungerar korrekt.
+**b)** Simulera grindnätet i CircuitVerse, verifiera att konstruktionen fungerar korrekt. 
 
-**c)** Implementera konstruktionen i VHDL via en modul döpt `priority_encoder`:
-* Placera projektet i en ny underkatalog `c/quartus/priority_encoder`.
-* Döpt projektet till samma namn som toppmodulen (`priority_encoder`).
-* Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`).    
+**c)** Realisera konstruktionen via hårdvarubeskrivande kod i VHDL:
+* Döp projektet `priority_encoder`.
+* Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`).
 
 **d)** Verifiera konstruktionen på ett FPGA-kort. Anslut
-* insignaler `ABCD` till var sin slide-switch,
-* utsignaler `XY` till en lysdiod.
+* insignaler `ABCD` till slide-switchar `SWITCH[3:0]`,
+* utsignaler `XY` till lysdioder `LED[1:0]`. 
 
 Se [databladet](../../manuals/DE0%20User%20ManuaL.pdf) för PIN-nummer.
 

@@ -32,10 +32,10 @@
 ---
 
 ## Bilaga A - Övningsuppgifter
-**1.** Konstruera en D-latch innehållande insignal $D$ och $enable$ samt utsignaler $Q$ och $Qn$:
-* Insignal $enable$ ska användas för att låsa / låsa upp latchen; när $enable = 1$ är latchen öppen, annars är den låst.
-* Utsignal $Q$ ska utgöra D-latchens ordinarie utsignal.
-* Utsignal $Qn$ ska utgöra inversen av D-latchens ordinarie utsignal.
+**1.** Konstruera en D-latch innehållande insignal `D` och `enable` samt utsignaler `Q` och `Qn`:
+* Insignal `enable` ska användas för att låsa / låsa upp latchen; när `enable = 1` är latchen öppen, annars är den låst.
+* Utsignal `Q` ska utgöra D-latchens ordinarie utsignal.
+* Utsignal `Qn` ska utgöra inversen av D-latchens ordinarie utsignal.
 
 Därmed gäller följande:
 
@@ -61,31 +61,33 @@ samt
 Qn = (D * enable + Q)'
 ```
 
-**a)** Realisera motsvarande grindnät för hand och simulera i CircuitVerse. 
-**b)** Testa att ändra insignal $D$ när latchen är öppen respektive låst, notera utsignalerna. 
-**c)** Testa kombinationer 00 – 11 av insignalerna två gånger, så att vi ser hur latchen beter sig när den blir låst efter att ha varit öppen och tilldelats $D = 1$, annars ser vi enbart när den låses när $D = 0$.
+**a)** Realisera motsvarande grindnät för hand och simulera i CircuitVerse.
+
+**b)** Testa att ändra insignal `D` när latchen är öppen respektive låst, notera utsignalerna. 
+
+**c)** Testa kombinationer 00 – 11 av insignalerna två gånger, så att vi ser hur latchen beter sig när den blir låst efter att ha varit öppen och tilldelats `D = 1`, annars ser vi enbart när den låses när `D = 0`.
 
 ---
 
-**2.** Konstruera en D-vippa innehållande insignaler $clock$, $reset\_n$, $D$ och $enable$ samt utsignaler $Q$ och $Qn$:
-* Insignal $clock$ ska utgöras av en systemklocka med godtycklig frekvens (dock $50 MHz$ på FPGA-kortet).
-* Insignal $reset\_n$ ska utgöras av en inverterande reset-signal, när $reset\_n = 0$ ska systemåterställning ske.
-* Insignal $enable$ ska användas för att låsa / låsa upp vippan; när $enable = 1$ är vippan öppen (aktiverad) och kan uppdateras vid klockflank, annars är den låst.
-* Utsignal $Q$ ska utgöra D-vippans ordinarie utsignal.
-* Utsignal $Qn$ ska utgöra inversen av D-vippans ordinarie utsignal.
+**2.** Konstruera en D-vippa innehållande insignaler `clock`, `reset_n`, `D` och `enable` samt utsignaler `Q` och `Qn`:
+* Insignal `clock` ska utgöras av en systemklocka med godtycklig frekvens (dock `50 MHz` på FPGA-kortet).
+* Insignal `reset_n` ska utgöras av en inverterande reset-signal, när `reset_n = 0` ska systemåterställning ske.
+* Insignal `enable` ska användas för att låsa / låsa upp vippan; när `enable = 1` är vippan öppen (aktiverad) och kan uppdateras vid klockflank, annars är den låst.
+* Utsignal `Q` ska utgöra D-vippans ordinarie utsignal.
+* Utsignal `Qn` ska utgöra inversen av D-vippans ordinarie utsignal.
 
 Därmed gäller följande:
 
 ```math
-reset\_n = 0 => \text{Systemåterställning} => Q = 0, Qn = 1
+reset_n = 0 => \text{Systemåterställning} => Q = 0, Qn = 1
 ```
 
 ```math
-reset\_n = 1 \; \text{och} \; enable = 1 => \text{vippan är öppen} => Q = D, Qn = D' \; \text{när klockan slår}
+reset_n = 1 \; \text{och} \; enable = 1 => \text{vippan är öppen} => Q = D, Qn = D' \; \text{när klockan slår}
 ```
 
 ```math
-reset\_n = 1 \; \text{och} \; enable = 0 => \text{vippan är låst} => Q =Q, Qn = Qn \; \text{när klockan slår}
+reset_n = 1 \; \text{och} \; enable = 0 => \text{vippan är låst} => Q =Q, Qn = Qn \; \text{när klockan slår}
 ```
 
 D-vippans utsignaler (utan asynkron reset) kan realiseras via följande ekvationer:
@@ -103,19 +105,22 @@ Qn = (D * enable * clock + Q)'
 ***OBS!** Detta är en förenklad modell för förståelse. I praktiken realiseras D-vippor med flankkänsliga strukturer,
 vilket innebär att utsignalerna endast uppdateras på stigande klockflank.*
 
-**a)** Realisera motsvarande grindnät för hand och simulera i CircuitVerse. Sätt klockans periodtid till $1000$ $ms$. 
-**b)** Testa att ändra insignal $D$ när vippan är öppen respektive låst, notera utsignalerna och hur de följer klockpulserna i normalfall. Testa sedan utsignalerna vid systemåterställning (då $reset\_n = 0$). 
-**c)** Om $Q = 1$ när systemåterställning sker, dröjer det tills klockan slår innan $Q$ nollställs eller sker det direkt? Förklara varför/varför inte.
+**a)** Realisera motsvarande grindnät för hand och simulera i CircuitVerse. Sätt klockans periodtid till `1000 ms`.
+
+**b)** Testa att ändra insignal `D` när vippan är öppen respektive låst, notera utsignalerna och hur de följer klockpulserna i normalfall. Testa sedan utsignalerna vid systemåterställning (då `reset_n = 0`).
+
+**c)** Om `Q = 1` när systemåterställning sker, dröjer det tills klockan slår innan `Q` nollställs eller sker det direkt? Förklara varför/varför inte.
+
 **d)** Om tid finns, realisera konstruktionen i VHDL via en modul döpt `d_flip_flop`:
-*  Välj FPGA-kort Terasic DE0 (enhet 5CEBA4F23C7).
+*  Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`).
 * Anslut 
-    * $clock$ till en $50$ $MHz$ systemklocka,
-    * $D$ samt $enable$ till var sin slide-switch,
-    * $Q$ samt $Qn$ till var sin lysdiod.
+    * `clock` till en `50 MHz` systemklocka,
+    * `D` samt `enable` till var sin slide-switch,
+    * `Q` samt `Qn` till var sin lysdiod.
 * Se [databladet](../../manuals/DE0%20User%20ManuaL.pdf) för pin-nummer.
 
 **Tips**: 
-* Lägg till en AND-grind med insignaler $Q$ samt reset_n på D-vippans utgång för att enkelt implementera en asynkron inverterande reset, så att vippans utsignaler återställs direkt utan att vänta på klockan. 
-* Den inverterande utsignalen $Qn$ kan enkelt sättas till inversen av den utsignalen $Q$ via en NOT-grind.
+* Lägg till en AND-grind med insignaler `Q` samt reset_n på D-vippans utgång för att enkelt implementera en asynkron inverterande reset, så att vippans utsignaler återställs direkt utan att vänta på klockan. 
+* Den inverterande utsignalen `Qn` kan enkelt sättas till inversen av den utsignalen `Q` via en NOT-grind.
 
 ---

@@ -34,26 +34,26 @@ Videon kommer starta på tiden 01:30:50, vilket är då flankdetekteringsdelen b
 ## Bilaga A - Övningsuppgifter
 
 **1.**  Du ska konstruera ett synkront digitalt system för toggling av en lysdiod via en tryckknapp. Systemet ska inneha följande portar: 
-* Insignal $clock$ ska utgöras av en systemklocka med godtycklig frekvens (dock 50 MHz på FPGA-kortet).
-* Insignal $reset\_n$ ska utgöras av en asynkron inverterande reset-signal. När $reset\_n$ är låg ska systemåterställning ske, oavsett systemklockans tillstånd.
-* Insignal $button\_n$ ska utgöras av en inverterande tryckknapp, som vid nedtryckning (fallande flank) togglar en lysdiod.
-* Utsignal $led$ ska utgöras av en lysdiod, som togglas vid nedtryckning (fallande flank) av tryckknapp $button\_n$.
+* Insignal `clock` ska utgöras av en systemklocka med godtycklig frekvens (dock `50 MHz` på FPGA-kortet).
+* Insignal `reset_n` ska utgöras av en asynkron inverterande reset-signal. När `reset_n` är låg ska systemåterställning ske, oavsett systemklockans tillstånd.
+* Insignal `button_n` ska utgöras av en inverterande tryckknapp, som vid nedtryckning (fallande flank) togglar en lysdiod.
+* Utsignal `led` ska utgöras av en lysdiod, som togglas vid nedtryckning (fallande flank) av tryckknapp `button_n`.
 
 Kretsen ska implementeras synkront med en asynkron reset:
-* Samtliga signaler i kretsen uppdateras vid stigande flank på systemklockan $clock$ eller när reset-signalen $reset\_n$ är låg.
-* När $reset\_n$ är låg ska systemåterställning ske, vilket innebär att samtliga signaler ska sättas till startläget (och lysdioden ska då släckas).
+* Samtliga signaler i kretsen uppdateras vid stigande flank på systemklockan `clock` eller när reset-signalen `reset_n` är låg.
+* När `reset_n` är låg ska systemåterställning ske, vilket innebär att samtliga signaler ska sättas till startläget (och lysdioden ska då släckas).
 
-**a)** Realisera motsvarande grindnät för hand och simulera i CircuitVerse. Sätt klockans periodtid till $1000$ $ms$. 
+**a)** Realisera motsvarande grindnät för hand och simulera i CircuitVerse. Sätt klockans periodtid till `1000 ms`. 
 
-**b)** Testa att toggla lysdioden genom att trycka ned $button\_n$. Sker togglingen direkt eller dröjer det tills klockan slår? 
+**b)** Testa att toggla lysdioden genom att trycka ned `button_n`. Sker togglingen direkt eller dröjer det tills klockan slår? 
 
-**c)** Implementera konstruktionen i VHDL via en modul döpt $led\_toggle2$:
-* Välj FPGA-kort Terasic DE0 (enhet 5CEBA4F23C7).
+**c)** Implementera konstruktionen i VHDL via en modul döpt `led_toggle2`:
+* Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`).
 * Anslut 
-    * $clock$ till en $50$ $MHz$ systemklocka,
-    * $reset\_n$ till en tryckknapp,
-    * $button\_n$ till en tryckknapp,
-    * $led$ till en lysdiod.
+    * `clock` till en `50 MHz` systemklocka,
+    * `reset_n` till en tryckknapp,
+    * `button_n` till en tryckknapp,
+    * `led` till en lysdiod.
 * Se [databladet](../../manuals/DE0%20User%20ManuaL.pdf) för pin-nummer.
 
 ---

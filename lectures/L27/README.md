@@ -109,7 +109,7 @@ tillståndet före `STATE_OFF` är `STATE_ON`.
 * Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`).    
 
 **b)** Verifiera konstruktionen på ett FPGA-kort. Anslut
-* insignal `clock` till en 50 MHz klockkrets,
+* insignal `clock` till en `50 MHz` klockkrets,
 * insignaler `reset_n`, `button1_n` samt `button2_n` till var sin tryckknapp,
 * utsignal `led` till en lysdiod.
 
