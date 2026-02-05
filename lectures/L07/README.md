@@ -59,7 +59,7 @@ instruktioner [här](../../manuals/Installation%20och%20konfiguration%20av%20Qua
     * På insidan ser man vad byggblocket består av.
 
 #### Exempel
-Nedan visas en modul döpt `or_gate`, bestående av inportar $a$ och $b$ samt en utport $x$:
+Nedan visas en modul döpt `or_gate`, bestående av inportar `a` och `b` samt en utport `x`:
 
 ![Modulen `or_gate`](./images/or_gate_module.png)
 
@@ -126,9 +126,9 @@ use ieee.std_logic_1164.all;
 
 #### Exempel
 Funktionaliteten för OR-grinden ovan hade kunnat realiseras via en `process` döpt `OR_PROCESS` såsom visas nedan.  
-Processen i fråga exekverar vid förändring av någon av insignaler $a$ och $b$, vilket implementeras genom 
+Processen i fråga exekverar vid förändring av någon av insignaler `a` och `b`, vilket implementeras genom 
 att deklarera dessa portar i den så kallade känslighetslistan (innehållet i parentesen efter nyckelordet `process`). 
-Via en `if else`-sats sätts utsignal $x$ till $1$ när minst en av $a$ eller $b$ är $1$, annars sätts $x$ till $0$:  
+Via en `if else`-sats sätts utsignal `x` till $1$ när minst en av `a` eller `b` är $1$, annars sätts `x` till $0$:  
 
 ```vhdl
 architecture behaviour of or_gate is
@@ -151,7 +151,7 @@ end architecture;
 * Alla signaler deklareras i den deklarativa delen av arkitekturen, alltså direkt ovanför nyckelordet `begin`.   
 
 #### Exempel
-Som exempel på användning av en signal i ett system med insignaler $abcd$ och utsignalen $x$, som ska uppfylla den logiska funktionen $x = a + b'cd$ kan en signal döpt $y = b'cd$ implementeras enligt nedan, i detta fall primärt för att göra koden mer läsbar:  
+Som exempel på användning av en signal i ett system med insignaler $abcd$ och utsignalen `x`, som ska uppfylla den logiska funktionen $x = a + b'cd$ kan en signal döpt $y = b'cd$ implementeras enligt nedan, i detta fall primärt för att göra koden mer läsbar:  
 
 ```vhdl
 library ieee;

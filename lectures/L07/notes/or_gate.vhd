@@ -1,29 +1,20 @@
---------------------------------------------------------------------------------
--- Design of a 2-bit OR-gate.
+---------------------------------------------------------------------------
+-- 2-bit OR gate implementation.
 --
 -- Inputs:
---      a: First input.
---      b: Second input.
+--     - a,b: OR gate inputs.
 --
 -- Outputs:
---     x: output.
---------------------------------------------------------------------------------
+--     - x: OR gate output.
+---------------------------------------------------------------------------
 library ieee;
-use ieee.std_logic_1164.all; -- Contains data type 'std_logic'.
+use ieee.std_logic_1164.all;
 
---------------------------------------------------------------------------------
--- Entity is the outside of the module.
--- Here the ports (inputs and outputs) are defined.
---------------------------------------------------------------------------------
 entity or_gate is
     port(a, b: in std_logic;
          x   : out std_logic);
 end entity;
 
---------------------------------------------------------------------------------
--- The architecture is the inside of the module.
--- Here we describe the behaviour of the circuit.
---------------------------------------------------------------------------------
 architecture behaviour of or_gate is
 begin
     x <= a or b;
