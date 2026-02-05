@@ -29,3 +29,4 @@ Material från föreläsningar:
 * [L26](./L26/README.md): Konstruktion av tillståndsmaskiner (del I).
 * [L27](./L27/README.md): Konstruktion av tillståndsmaskiner (del II).
 * [L28](./L28/README.md): **P04** - Egenvalt projekt (del I).
+* [L29](./L29/README.md): **P04** - Egenvalt projekt (del II).
