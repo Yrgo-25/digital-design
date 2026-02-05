@@ -19,6 +19,7 @@
 
 ### Under lektionen
 * Genomför bifogade [övningsuppgifter](#bilaga-a---övningsuppgifter) nedan.
+* Lösningsförslag finns [här](./notes/README.md).
 
 ### Demonstration
 * Skapande av testbänk för OR-grinden som konstruerades föregående lektion.
