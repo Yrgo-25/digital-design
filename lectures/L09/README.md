@@ -37,9 +37,9 @@
 
 ## Bilaga A - Övningsuppgifter
 
-Realisera grindnätet för en 4-bitars "adderare" bestående av fyra insignaler $ABCD$ samt tre utsignaler $XYZ$, både för hand samt via VHDL-kod. 
+Realisera grindnätet för en 4-bitars "adderare" bestående av fyra insignaler `ABC` samt tre utsignaler `XYZ`, både för hand samt via VHDL-kod. 
 
-**OBS!** Detta grindnät är inte en traditionell binär adderare, utan en så kallad "population counter", som summerar antalet ettor bland insignalerna $ABCD$ och presenterar resultatet som ett 3-bitars binärt tal via utsignaler $XYZ$.
+**OBS!** Detta grindnät är inte en traditionell binär adderare, utan en så kallad "population counter", som summerar antalet ettor bland insignalerna `ABC` och presenterar resultatet som ett 3-bitars binärt tal via utsignaler `XYZ`.
 
 Grindnätets sanningstabell visas nedan:
 
@@ -62,14 +62,20 @@ Grindnätets sanningstabell visas nedan:
 | 1110 | 011 |
 | 1111 | 100 |
 
-**1.** Finn minimerade logiska ekvationer för utsignaler $X$, $Y$ och $Z$ via användning av Karnaugh-diagram eller ekvationer. 
+**a)** Finn minimerade logiska ekvationer för utsignaler `X`, `Y` och `Z` via användning av Karnaugh-diagram eller ekvationer. 
 
-**2.** Rita grindnätet och verifiera att det fungerar som tänkt via simulering i CircuitVerse.
+**b)** Rita grindnätet och verifiera att det fungerar som tänkt via simulering i CircuitVerse.
 
-**3.** Realisera projektet via hårdvarubeskrivande kod i VHDL.  
-Anslut insignaler $ABCD$ till slide-switchar `SWITCH[3:0]` och utsignaler $XYZ$ till lysdioder 
-`LED[2:0]` på FPGA-kortet. 
+**c)** Realisera konstruktionen via hårdvarubeskrivande kod i VHDL:
+* Döp projektet `net2`.
+* Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`).
 
-**4.** Skapa en testbänk och genomför simulering av hårdvaran i ModelSim för samtliga binära kombinationer av insignaler $ABCD$. Testkör varje kombination under $10$ $ns$.
+**d)** Verifiera konstruktionen på ett FPGA-kort. Anslut
+* insignaler `ABCD` till slide-switchar `SWITCH[3:0]`,
+* utsignaler `XYZ` till lysdioder `LED[2:0]`.
+
+Se [databladet](../../manuals/DE0%20User%20ManuaL.pdf) för PIN-nummer.
+
+**e)** Skapa en testbänk och genomför simulering av hårdvaran i ModelSim för samtliga binära kombinationer av insignaler `ABCD`. Testkör varje kombination under `10 ns`.
 
 ---
