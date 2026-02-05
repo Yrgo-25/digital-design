@@ -28,3 +28,4 @@ Material från föreläsningar:
 * [L25](./L25/README.md): **D02** - VHDL teori (del II).
 * [L26](./L26/README.md): Konstruktion av tillståndsmaskiner (del I).
 * [L27](./L27/README.md): Konstruktion av tillståndsmaskiner (del II).
+* [L28](./L28/README.md): **P04** - Egenvalt projekt (del I).
