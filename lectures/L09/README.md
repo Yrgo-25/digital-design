@@ -37,9 +37,9 @@
 
 ## Bilaga A - Övningsuppgifter
 
-Realisera grindnätet för en 4-bitars "adderare" bestående av fyra insignaler `ABC` samt tre utsignaler `XYZ`, både för hand samt via VHDL-kod. 
+Realisera grindnätet för en 4-bitars "adderare" bestående av fyra insignaler `ABCD` samt tre utsignaler `XYZ`, både för hand samt via VHDL-kod. 
 
-**OBS!** Detta grindnät är inte en traditionell binär adderare, utan en så kallad "population counter", som summerar antalet ettor bland insignalerna `ABC` och presenterar resultatet som ett 3-bitars binärt tal via utsignaler `XYZ`.
+**OBS!** Detta grindnät är inte en traditionell binär adderare, utan en så kallad "population counter", som summerar antalet ettor bland insignalerna `ABCD` och presenterar resultatet som ett 3-bitars binärt tal via utsignaler `XYZ`.
 
 Grindnätets sanningstabell visas nedan:
 
@@ -60,7 +60,7 @@ Grindnätets sanningstabell visas nedan:
 | 1100 | 010 |
 | 1101 | 011 |
 | 1110 | 011 |
-| 1111 | 100 |
+| 1111 | 110 |
 
 **a)** Finn minimerade logiska ekvationer för utsignaler `X`, `Y` och `Z` via användning av Karnaugh-diagram eller ekvationer. 
 

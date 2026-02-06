@@ -38,7 +38,6 @@ Grindnätet kan realiseras såsom visas nedan:
 
 Ovanstående grindnät kan simuleras i [CircuitVerse](https://circuitverse.org/simulator) genom att importera [net1.cv](./net1.cv).
 
-
 ## VHDL-implementation
 * Filen [net1.vhd](./net1.vhd) innehåller modulen `net1`, som utgör själva grindnätet.
 * Filen [net1_tb.vhd](./net1_tb.vhd) utgör en testbänk för modulen `net1`.
