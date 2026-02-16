@@ -39,7 +39,7 @@ architecture behaviour of net2_tb is
 --------------------------------------------------------------------------------
 constant INPUT_SIZE: natural := 4;
 constant INPUT_MIN : natural := 0;
-constant INPUT_MAX : natural := (INPUT_SIZE ** 2) - 1;
+constant INPUT_MAX : natural := (2 ** INPUT_SIZE) - 1;
 constant WAIT_NS   : time := 10 ns;
 
 --------------------------------------------------------------------------------
