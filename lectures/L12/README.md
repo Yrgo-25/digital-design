@@ -21,6 +21,7 @@
 
 ### Under lektionen
 * Genomför bifogade [övningsuppgifter](#bilaga-b---övningsuppgifter) nedan.
+* Lösningsförslag finns [här](./notes/README.md).
 
 ### Demonstration
 * Varje del av övningsuppgiften gås igenom i helklass efter att ni fått tid att implementera den på egen hand.
@@ -129,7 +130,6 @@ Via case-satsen ovan sätts utsignal `x` till:
 ---
 
 ## Bilaga B - Övningsuppgifter
-
 På mikrodatorn ATmega328P används en multiplexer för att analoga kanaler PORTC0 – PORTC7 ska kunna dela på en enda AD-omvandlare.
 
 Enbart en av de analoga kanalernas insignaler släpps igenom till AD-omvandlaren vid ett givet tillfälle, vilket kontrolleras via selektorbitar `MUX[2:0]` i registret `ADMUX` (*ADC Multiplexer Select Register*) enligt tabellen nedan:
@@ -147,7 +147,7 @@ Enbart en av de analoga kanalernas insignaler släpps igenom till AD-omvandlaren
 
 ---
 
-Vi ska i denna uppgift konstruera en sådan *8-to-1 multiplexer*  (*8-to-1* indikerar åtta inportar samt en utport).
+Vi ska i denna uppgift konstruera en sådan *8-to-1 multiplexer* (*8-to-1* indikerar åtta inportar samt en utport).
 
 För läsbarhetens skull sätter vi att:
 * A - H = `PORTC[7:0]`
@@ -175,9 +175,8 @@ Sanningstabellen ovan kan därmed skrivas om såsom visas nedan:
 **b)** Simulera grindnätet i CircuitVerse, verifiera att konstruktionen fungerar korrekt.
 
 **c)** Implementera konstruktionen i VHDL via en modul döpt `mux_8_to_1`:
-* Placera projektet i en ny underkatalog `c/quartus/mux_8_to_1`.
-* Döpt projektet till samma namn som toppmodulen (`mux_8_to_1`).
-* Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`).    
+* Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`). 
+* Implementera portar såsom beskrivet ovan.
 
 **d)** Verifiera konstruktionen på ett FPGA-kort. Anslut
 * insignaler `A - H` till var sin slide-switch,
