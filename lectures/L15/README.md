@@ -20,7 +20,7 @@
 * Genomför bifogade [övningsuppgifter](#bilaga-b---övningsuppgifter), som behandlar konstruktion av ett digitalt system innehållande 7-segmentsdisplayer. Vi kommer fortsätta arbeta med detta under nästa lektion.
 
 ### Demonstration
-* Varje del av övningsuppgiften gås igenom i helklass efter att ni fått tid att implementera den på egen hand.
+* Varje del av övningsuppgiften (förutom extrauppgiften) gås igenom i helklass efter att ni fått tid att implementera den på egen hand.
 
 ## Utvärdering
 * Vad tyckte ni var mest intressant eller lärorikt under lektionen?
@@ -69,17 +69,16 @@ end architecture;
 ## Bilaga B - Övningsuppgifter
 
 ### 1. Hexadecimala 7-segmentsdisplayer
-
 Du ska konstruera ett digitalt system innehållande två 7-segmentsdisplayer samt åtta slide-switchar.  
-På respektive 7-segmentsdisplay ska ett hexadecimalt tal `0-F` visas. Talet som skrivs ut ska matas in biärt via fyra slide-switchar.
+På respektive 7-segmentsdisplay ska ett hexadecimalt tal `0-F` visas. Talet som skrivs ut ska matas in binärt via fyra slide-switchar.
 
-Eftersom två displayer används krävs totalt
-* fyra switchar för den första displayen,
-* fyra switchar för den andra displayen.
+Eftersom två displayer används krävs totalt:
+* Fyra switchar för den första displayen,
+* Fyra switchar för den andra displayen.
 
-För att undvika att skriva samma kod två gånger ska du skapa
-* en delkomponent (modul) som styr en 7-segmentsdisplay,
-* två instanser av denna modul i toppmodulen.
+För att undvika att skriva samma kod två gånger ska du skapa:
+* En delkomponent (modul) som styr en 7-segmentsdisplay,
+* Två instanser av denna modul i toppmodulen.
 
 **Projektnamn** (tillika toppmodulens namn): `hex_display`  
 **Delkomponentens namn**: `display`
@@ -90,16 +89,16 @@ Systemets arkitekturvisas nedan:
 Motsvarande SystemVerilog-kod finns i underkatalogen [systemverilog](./systemverilog/README.md).  
 **Tips**: Ladda ned [hex_display.qar](./systemverilog/hex_display.qar), kompilera och testa på ett FPGA-kort för att få en överblick över funktionaliteten.
 
-När konstruktionen är slutförd ska
-* det 4-bitars binära tal som matas in via slide-switchar `input[7:3]` skrivas ut hexadecimalt på `hex1[6:0]`,
-* det 4-bitars binära tal som matas in via slide-switchar `input[3:0]` skrivas ut hexadecimalt på `hex0[6:0]`.
+När konstruktionen är slutförd ska:
+* Det 4-bitars binära tal som matas in via slide-switchar `input[7:4]` skrivas ut hexadecimalt på `hex1[6:0]`,
+* Det 4-bitars binära tal som matas in via slide-switchar `input[3:0]` skrivas ut hexadecimalt på `hex0[6:0]`.
 
 ---
 
 **a)** Skapa ett projekt döpt `hex_display` i Quartus:  
 * Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`).  
 
-**b)** Lägg till toppmodulen hex_display innehållande följande portar:  
+**b)** Lägg till toppmodulen `hex_display` med följande portar:  
 * `input[7:0]` : Insignaler från slide-switchar. 
 * `hex1[6:0]` samt `hex0[6:0]`: Utsignaler till var sin 7-segmentsdisplay.
 
@@ -108,7 +107,7 @@ Lägg också till en tom arkitektur för toppmodulen och kompilera sedan koden. 
 **c)** Öppna Pin Planner och anslut portarna enligt nedan (se 
 [databladet](../../manuals/DE0%20User%20ManuaL.pdf) för PIN-nummer):
 * Anslut `input[7:0]` till slide-switchar `SW[7:0]`. 
-* Anslut `hex1[6:0] till 7-segmentsdisplay `HEX1[6:0]` och `hex0[6:0]` till 7-segmentsdisplay `HEX0[6:0]`. 
+* Anslut `hex1[6:0]` till 7-segmentsdisplay `HEX1[6:0]` och `hex0[6:0]` till 7-segmentsdisplay `HEX0[6:0]`. 
 
 Kompilera sedan om koden. 
 
@@ -145,19 +144,45 @@ constant DISPLAY_OFF: std_logic_vector(6 downto 0) := "1111111";
 
 Kompilera om koden och korrigera eventuella fel.
 
-**e)** Skapa två instanser av delkomponenten `display` i toppmodulen. Döp instanserna till `display1` respektive `display0`. 
+**OBS!** Om ni vill kan `number` utgöras av ett osignerat heltal mellan 0-15 genom att deklareras enligt nedan:
 
-För respektive instans ska fyra 7-segmentsdisplayer anslutas till `input[3:0]` och en 7-segmentsdisplay anslutas till `hex[6:0]`:
-* Anslut `switch[7:4]` samt `hex1[6:0]` till instansen `display1`.
-* Anslut `switch[3:0]` samt `hex0[6:0]` till instansen `display0`.
+```vhdl
+number: in natural range 0 to 15;
+```
+
+För att ovanstående ska fungera måste paketet `ieee.numeric_std` användas.
+
+I toppmodulen måste sedan insignalerna konverteras från `std_logic_vector` till heltal
+såsom visas nedan, där `input[7:4]` omvandlas till ett tal `number`: (här antas `number` vara en signal såsom visades ovan):
+
+```vhdl
+number <= to_integer(unsigned(input(7 downto 4)));
+```
+
+**e)** Skapa två instanser av delkomponenten `display` i toppmodulen:
+* Döp instanserna till `display1` respektive `display0`.
+* För respektive instans ska fyra 7-segmentsdisplayer anslutas till `number[3:0]` och en 7-segmentsdisplay anslutas till `hex[6:0]`:
+	* Anslut `switch[7:4]` samt `hex1[6:0]` till instansen `display1`.
+	* Anslut `switch[3:0]` samt `hex0[6:0]` till instansen `display0`.
+
+Anslut portar med `port mapping`. Som exempel, nedan visas hur instansen `display1` kan skapas, där
+`port mapping` används för att ansluta:
+* `number[3:0]` till `input[7:4]`.
+* `hex[6:0]` till `hex1[6:0]`.
+
+```vhdl
+display1: entity work.display
+    port map(number => input(7 downto 4);
+	         hex    => hex1);
+```
 
 Kompilera om koden och korrigera eventuella fel.
 
-**e)** Skapa en testbänk för modulen `display` och döp denna `display_tb`. Testa samtliga 16 kombinationer `0000–1111` av `number[3:0]` och kontrollera att binärkoden som skrivs till `hex[6:0]` är korrekt (jämför med de framtagna binärkoderna).
+**f)** Skapa en testbänk för modulen `display` och döp denna `display_tb`. Testa samtliga `16` kombinationer `0000–1111` av `number[3:0]` och kontrollera att binärkoden som skrivs till `hex[6:0]` är korrekt (jämför med de framtagna binärkoderna).
 
-**f)** Verifiera konstruktionen på ett FPGA-kort. 
+**g)** Verifiera konstruktionen på ett FPGA-kort. 
 
-**g)** Om tid finns, realisera konstruktionen med logiska grindar:
+**h)** **Om tid finns**: Realisera konstruktionen med logiska grindar:
 * Börja med fyra slide-switchar och en 7-segmentsdisplay - Ta fram logiska ekvationer för respektive segment. Verifiera implementationen i CircuitVerse.
 * Kopiera befintligt grindnät för den andra 7-segmentsdisplayen. Detta motsvarar att vi skapar
 en till instans av modulen `display` i VHDL istället för att duplicera koden.
