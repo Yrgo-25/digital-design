@@ -79,15 +79,15 @@ Qn = (D * enable + Q)'
 Därmed gäller följande:
 
 ```math
-reset_n = 0 => \text{Systemåterställning} => Q = 0, Qn = 1
+reset\_n = 0 => \text{Systemåterställning} => Q = 0, Qn = 1
 ```
 
 ```math
-reset_n = 1 \; \text{och} \; enable = 1 => \text{vippan är öppen} => Q = D, Qn = D' \; \text{när klockan slår}
+reset\_n = 1 \; \text{och} \; enable = 1 => \text{vippan är öppen} => Q = D, Qn = D' \; \text{när klockan slår}
 ```
 
 ```math
-reset_n = 1 \; \text{och} \; enable = 0 => \text{vippan är låst} => Q =Q, Qn = Qn \; \text{när klockan slår}
+reset\_n = 1 \; \text{och} \; enable = 0 => \text{vippan är låst} => Q =Q, Qn = Qn \; \text{när klockan slår}
 ```
 
 D-vippans utsignaler (utan asynkron reset) kan realiseras via följande ekvationer:
@@ -120,7 +120,7 @@ vilket innebär att utsignalerna endast uppdateras på stigande klockflank.*
 * Se [databladet](../../manuals/DE0%20User%20ManuaL.pdf) för pin-nummer.
 
 **Tips**: 
-* Lägg till en AND-grind med insignaler `Q` samt reset_n på D-vippans utgång för att enkelt implementera en asynkron inverterande reset, så att vippans utsignaler återställs direkt utan att vänta på klockan. 
+* Lägg till en AND-grind med insignaler `Q` samt `reset_n` på D-vippans utgång för att enkelt implementera en asynkron inverterande reset, så att vippans utsignaler återställs direkt utan att vänta på klockan. 
 * Den inverterande utsignalen `Qn` kan enkelt sättas till inversen av den utsignalen `Q` via en NOT-grind.
 
 ---
