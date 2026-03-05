@@ -57,7 +57,7 @@ vid fallande flank på tryckknappen `button_n`.
 ### Detaljer
 * Kretsen ska implementeras synkront med en asynkron reset; samtliga signaler i kretsen uppdateras vid stigande flank på `clock` eller när `reset_n` är låg.
 * När `reset_n` är låg ska systemåterställning ske, vilket innebär att samtliga signaler ska sättas i startläget (och `led` ska då släckas).
-* Kretsen ska också göras mer robust via förebyggande av metastabilitet. För att åstadkomma detta ska *double flop*-metoden användas. Därmed ska varje insignal (förutom systemklockan) synkroniseras via två vippor var.
+* Kretsen ska också göras mer robust via förebyggande av metastabilitet. För att åstadkomma detta ska "double flop"-metoden användas. Därmed ska varje insignal (förutom systemklockan) synkroniseras via två vippor var.
 
 ### Uppgifter
  
@@ -88,7 +88,7 @@ Notera att:
 **c)** Realisera motsvarande grindnät för hand. Implementera `{Q1, Q2}` i form av var sin D-vippa. 
 
 **d)** Realisera konstruktionen och simulera i CircuitVerse:
-* Lägg till metastabilitetsskydd via *double flop*-metoden samt eventdetektering för `button_n`. 
+* Lägg till metastabilitetsskydd via "double flop"-metoden samt eventdetektering för `button_n`. 
 * Se till att insignal `X` ettställs enbart på fallande flank på `button_n`. 
 * Anslut utsignal `Y` till `led`. Se till att `led` enbart tänds i tillstånd `STATE_3`, dvs. då `{Q1, Q2} = {1, 0}`.
 

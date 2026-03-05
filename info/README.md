@@ -28,12 +28,12 @@ Erik Pihl ([erik.axel.pihl@gmail.com](mailto:erik.axel.pihl@gmail.com))
 | 10 | 2/3  | L16 | Delkomponenter i VHDL, 7-segmentsdisplayer (del II) |
 | 10 | 4/3  | L17 | D-latchen och D-vippan |
 | 10 | 5/3  | L18 | Synkrona processers mall i VHDL |
-| 11 | 9/3  | L19 | Flankdetektering med D-vippor (del I) |
-| 11 | 11/3 | L20 | Flankdetektering med D-vippor (del II) |
-| 11 | 12/3 | L21 | Förebyggande av metastabilitet med vippor |
-| 12 | 16/3 | L22 | **P03** - Praktisk labb med synkron logik i VHDL |
-| 12 | 18/3 | L23 | Konstruktion av timerkretsar (del I) |
-| 12 | 19/3 | L24 | Konstruktion av timerkretsar (del II) |
+| 11 | 9/3  | L19 | Förebyggande av metastabilitet med vippor |
+| 11 | 11/3 | L20 | Generiska parametrar i VHDL |
+| 11 | 12/3 | L21 | **P03** - Praktisk labb med synkron logik i VHDL |
+| 12 | 16/3 | L22 | Konstruktion av timerkretsar (del I) |
+| 12 | 18/3 | L23 | Konstruktion av timerkretsar (del II) |
+| 12 | 19/3 | L24 | Övning - Synkront system med multipla komponenter |
 | 13 | 23/3 | L25 | **D02** - VHDL teori (del II) |
 | 13 | 25/3 | L26 | Konstruktion av tillståndsmaskiner (del I)  |
 | 13 | 26/3 | L27 | Konstruktion av tillståndsmaskiner (del II) |

@@ -70,7 +70,7 @@ Tillsammans ska displayerna visa en tid på formen `HH:MM:SS`, där `hex[5:4]` v
 * Efter systemåterställning måste användaren manuellt starta om klockan via nedtryckning av tryckknappen `key_n` igen.
 
 ### Metastabilitetsskydd
-* Konstruktionen ska inneha skydd mot metastabilitet via användning av *double flop*-metoden.
+* Konstruktionen ska inneha skydd mot metastabilitet via användning av "double flop"-metoden.
 
 ### Betyg
 * Vid slutförd konstruktion och redovisning ges godkänt (`G = 2p`).

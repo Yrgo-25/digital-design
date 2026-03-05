@@ -99,7 +99,7 @@ tillståndet före `STATE_OFF` är `STATE_ON`.
 ### Detaljer
 * Kretsen ska implementeras synkront med en asynkron reset; samtliga signaler i kretsen uppdateras vid stigande flank på `clock` eller när `reset_n` är låg.
 * När `reset_n` är låg ska systemåterställning ske, vilket innebär att samtliga signaler ska sättas i startläget (och `led` ska då släckas).
-* Kretsen ska också göras mer robust via förebyggande av metastabilitet. För att åstadkomma detta ska *double flop*-metoden användas. Därmed ska varje insignal (förutom systemklockan) synkroniseras via två vippor var.
+* Kretsen ska också göras mer robust via förebyggande av metastabilitet. För att åstadkomma detta ska "double flop"-metoden användas. Därmed ska varje insignal (förutom systemklockan) synkroniseras via två vippor var.
 
 ### Uppgifter
 

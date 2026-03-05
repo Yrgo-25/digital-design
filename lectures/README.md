@@ -18,13 +18,13 @@ Material från föreläsningar:
 * [L15](./L15/README.md): Delkomponenter i VHDL, 7-segmentsdisplayer (del I).
 * [L16](./L16/README.md): Delkomponenter i VHDL, 7-segmentsdisplayer (del II).
 * [L17](./L17/README.md): D-latchen och D-vippan.
-* [L18](./L18/README.md): Synkrona processers mall.
-* [L19](./L19/README.md): Flankdetektering med D-vippor (del I).
-* [L20](./L20/README.md): Flankdetektering med D-vippor (del II).
-* [L21](./L21/README.md): Förebyggande av metastabilitet med vippor.
-* [L22](./L22/README.md): **P03** - Praktisk labb med synkron logik i VHDL.
-* [L23](./L23/README.md): Konstruktion av timerkretsar (del I).
-* [L24](./L24/README.md): Konstruktion av timerkretsar (del II).
+* [L18](./L18/README.md): Flankdetektering med vippor.
+* [L19](./L19/README.md): Förebyggande av metastabilitet med vippor.
+* [L20](./L20/README.md): Generiska parametrar i VHDL.
+* [L21](./L21/README.md): **P03** - Praktisk labb med synkron logik i VHDL.
+* [L22](./L22/README.md): Konstruktion av timerkretsar (del I).
+* [L23](./L23/README.md): Konstruktion av timerkretsar (del II).
+* [L24](./L24/README.md): Övning - Synkront system med multipla komponenter.
 * [L25](./L25/README.md): **D02** - VHDL teori (del II).
 * [L26](./L26/README.md): Konstruktion av tillståndsmaskiner (del I).
 * [L27](./L27/README.md): Konstruktion av tillståndsmaskiner (del II).

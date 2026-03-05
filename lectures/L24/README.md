@@ -1,21 +1,27 @@
-# L24 - Konstruktion av timerkretsar (del II)
+# L24 - Övning - Synkront system med multipla komponenter
 
 ## Dagordning
-* Konstruktion av timerkretsar i VHDL.
+* Sammankoppling av tidigare skapade moduler:
+    * `display`
+    * `meta_prev`
+    * `timer`
 
 ## Mål med lektionen
-* Kunna konstruera timerkretsar i VHDL via generiska moduler.
+* Kunna sammankoppla multipla komponenter för att skapa ett större synkront system.
 
 ## Instruktioner
 
 ### Förberedelse
-* Se del II (den andra timmen) av min [video tutorial](https://youtu.be/v7O0QMHzmo8?si=XSc2Qk2BDTFX6iqd&t=3802) för information gällande konstruktion av timerkretsar i VHDL.
+* 
 
 ### Under lektionen
 * Genomför bifogade [övningsuppgifter](#bilaga-a---övningsuppgifter).
 
 ## Utvärdering
-* Förklara hur en VHDL-process för en timerkrets kan realiseras via en räknare.
+* Hur kopplas flera VHDL-moduler samman i en toppmodul?
+* Vad är syftet med att använda en toppmodul i ett större system?
+* Varför används `meta_prev` innan signaler från tryckknappar används i logiken?
+* Vilken signal i systemet orsakar att räknaren inkrementeras?
 
 ## Nästa lektion
 * Genomförande av **D02** - VHDL teori (del II).
@@ -23,73 +29,95 @@
 ---
 
 ## Bilaga A - Övningsuppgifter
+Du ska konstruera ett digitalt system i VHDL där en tryckknapp `button_n` används för att starta och stoppa en timer.
+* När timern är på ska denna räkna upp en intern 4-bitars räknare `counter` vid timeout.
+* Timern ska få timeout var 500:e millisekund när den är aktiv:
+    * När detta sker ettställs utporten `timeout`.
+    * Denna signal används för att inkrementera `counter`.
+* Värdet `0-F` av den interna räknaren `counter` ska visas på en 7-segmentsdisplay `hex`. 
+* När timern är av ska uppräkning upphöra och talet på displayen ska då förbli oförändrat.
+* Vid nedtryckning av reset-knappen ska talet på displayen sättas till `0` och timern ska stoppas.
 
-Du ska konstruera ett digitalt system i VHDL, där tre timerkretsar kan togglas via var sin tryckknapp.  
-När en given timer är aktiverad ska den räkna klockpulser. Efter ett visst antal klockpulser ska en lysdiod togglas. 
+---
 
+### Portar
 Systemet ska inneha följande portar:
-
 * Insignal `clock` ska utgöras av en systemklocka med en frekvens på `50 MHz`.
 * Insignal `reset_n` ska utgöras av en inverterande reset-signal från en tryckknapp. När denna signal är låg ska systemåterställning ske.
-* Insignaler `button_n[2:0]` ska utgöras av inverterande tryckknappar, som vid fallande flank togglar var sin timer.
-* Utsignal `led[2:0]` ska utgöras av lysdioder, som togglas av var sin timer. 
+* Insignal `button_n` ska utgöras av en inverterande tryckknapp, som vid fallande flank togglar en timer.
+* Utsignal `hex[6:0]` ska utgöras av en 7-segmentsdisplay, som visar värdet `0-F` av en intern räknare.
 
+---
+
+### Systemarkitektur
+
+```text
+button_n
+   ↓
+meta_prev
+   ↓ button_edge
+toggle timer_enable
+   ↓
+timer
+   ↓ timeout
+counter
+   ↓
+display
+   ↓
+hex
+```
+
+---
+
+### Synkront system
 Kretsen ska implementeras synkront med en asynkron reset:
 * Samtliga signaler i kretsen uppdateras vid stigande flank på systemklockan eller när reset-signalen är låg. 
-* När reset-signalen är låg ska systemåterställning ske, vilket innebär att samtliga signaler ska sättas i startläget - timerkretsarna ska då nollställas och lysdioderna ska släckas.
+* När reset-signalen är låg ska systemåterställning ske, vilket innebär att samtliga signaler ska sättas i startläget:
+    * Timern ska nollställas och stängas av.
+    * Räknaren ska nollställas och stängas av.
+    * 7-segmentsdisplayen ska visa värdet `0`.
 
-Kretsen ska också göras mer robust via förebyggande av metastabilitet. För att åstadkomma detta ska *double flop*-metoden användas. Därmed ska varje insignal (förutom systemklockan) synkroniseras via två vippor var.
+---
 
-Timerkretsar `timer0-timer2` ska implementeras internt via en modul döpt `timer`. Timerns frekvens ska kunna väljas vid instansiering, men defaultvärdet ska vara `1 Hz`. I denna konstruktion gäller att:
-* Den första timern, `timer0`, ska toggla en lysdiod var 1000:e millisekund när den är påslagen.
-* Den andra timern, `timer1`, ska toggla en lysdiod var 500:e millisekund när den är påslagen.
-* Den tredje timern, `timer2`, ska toggla en lysdiod var 100:e millisekund när den är påslagen.
+### Metastabilitetsskydd
+Kretsen ska också göras mer robust via förebyggande av metastabilitet. För att åstadkomma detta ska "double flop"-metoden användas. Därmed ska varje insignal (förutom systemklockan) synkroniseras via två vippor var.
 
-**a)** Skapa ett projekt döpt `led_toggle_timer` i Quartus:
+---
+
+### Uppgifter
+**a)** Skapa ett projekt döpt `timer_display_system` i Quartus:
 * Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`). 
-* Implementera portar såsom beskrivet ovan.
+* Anslut:
+  * `clock` till en `50 MHz` systemklocka.
+  * `reset_n` till en tryckknapp.
+  * `button_n` till en tryckknapp.
+  * `hex[6:0]` till en 7-segmentsdisplay.
+* Se [databladet](../../manuals/DE0%20User%20ManuaL.pdf) för pin-nummer.
 
-**b)** Lägg till följande signaler i toppmodulen:
-* `reset_s2_n`: Asynkron inverterande reset-signal synkroniserad i enlighet med *double flop*-metoden.
-* `button_edge_s2[2:0]`: Indikerar nedtryckning av tryckknapparna på fallande flank. Signalerna är dessutom synkroniserade i enlighet med *double flop*-metoden.
-* `timer_enabled[2:0]`: Lagrar status för respektive timer i systemet (`1` = timern är påslagen).
-* `timer_elapsed[2:0]`: Indikerar timeout för respektive timer (`1` = timeout).
+**b)** Lägg till tidigare skapade moduler från kursen:
+* `display` från [L16](../L16/README.md).
+* `meta_prev` från [L20](../L20/README.md).
+* `timer` från [L23](../L23/README.md).
 
-Dessa signaler kommer senare anslutas till instanser av delkomponenter och kommer därigenom fungera enligt beskrivningen ovan.
+**c)** Implementera systemet via instansiering av ovanstående moduler:
+* Lägg till en instans av respektive modul.
+* Koppla samman modulerna med portar och signaler:
+    * Lägg till signaler för submodulerna i toppmodulen, t.ex. `timer_enable`.
+    * Se till att `timer_enable` togglas vid fallande flank på `button_n` och används för att starta och stoppa timermodulen.
 
-**c)** Lägg till metastabilitetsskydd för insignaler `reset_n` samt `button_n[2:0]` via *double flop*-metoden:
-* Använd den generiska modulen `meta_prev` från [L21](../L21/README.md).
-* Anslut `reset_s2_n` samt `button_edge_s2[2:0]` till instansens utportar.
+**d)** Skapa en 4-bitars räknare i toppmodulen:
 
-**d)** Lägg till en generisk modul döpt `timer` med följande parameter och portar:
-* Parameter `FREQUENCY` ska utgöras av timerfrekvensen i form av ett osignerat tal som möjliggör en frekvens mellan `0.1–10 Hz`:
-    * Använd datatypen `natural`.
-    * Använd en range för att sätta min- och maxfrekvensen.
-    * Som exempel:
-        * Om vi har en systemklocka på `50 MHz` ska vi räkna upp `50` miljoner klockpulser innan en sekund har gått. 
-        * För en timerfrekvens på `1 Hz` ska därmed timern räkna upp till `50` miljoner, för `2 Hz` ska den räkna upp till `25` miljoner osv. 
-* Insignal `clock` ska utgöras av konstruktionens systemklocka.
-* Insignal `reset_s2_n` ska utgöras av en synkroniserad inverterande reset-signal. Vid reset ska timern nollställas.
-* Insignal `enabled` indikerar om timern är på. Om timern inte är på ska ingen uppräkning ske (men timern ska dock inte nollställas).
-* Utsignal `elapsed` indikerar ifall timern har löpt ut eller inte, vilket sker när timern har räknat upp till `FREQUENCY`.
+```vhdl
+signal counter: natural range 0 to 15;
+```
 
-**e)** I toppmodulen, skapa tre timerkretsar `timer0–timer2`. Sätt timerfrekvenser enligt beskrivning av lysdiodernas togglingshastighet ovan:
-* Enable- samt elapsed-bitar för `timer0` ska anslutas till `timer_enabled[0]` samt `timer_elapsed[0]`.
-* Enable- samt elapsed-bitar för `timer1` ska anslutas till `timer_enabled[1]` samt `timer_elapsed[1]`.
-* Enable- samt elapsed-bitar för `timer2` ska anslutas till `timer_enabled[2]` samt `timer_elapsed[2]`.
+Denna räknare ska räkna från `0-15`. Via ovanstående deklaration blir räknaren fyra bitar:
+* Detta medför att overflow sker vid uppräkning till `16`.
+* Räknaren kommer då automatiskt slå över till `0` utan manuell nollställning.
 
-**f)** Lägg till kod i toppmodulen så att respektive timer togglas vid nedtryckning (fallande flank) av motsvarande tryckknapp:
-* `timer0` ska togglas vid nedtryckning av `button_n[0]` => toggla `timer_enabled[0]` när `button_edge_s2[0] = 1`.
-* `timer1` ska togglas vid nedtryckning av `button_n[1]` => toggla `timer_enabled[1]` när `button_edge_s2[1] = 1`.
-* `timer2` ska togglas vid nedtryckning av `button_n[2]` => toggla `timer_enabled[2]` när `button_edge_s2[2] = 1`.
-
-Om reset-knappen trycks ned, vilket ska kontrolleras via den synkroniserade signalen `reset_s2_n`, ska samtliga enable-signaler direkt nollställas.
-
-**g)** Lägg till kod i toppmodulen så att respektive lysdiod `led[2:0]` togglas när respektive timer löper ut:
-* `led[0]` ska togglas när `timer0` löper ut.
-* `led[1]` ska togglas när `timer1` löper ut.
-* `led[2]` ska togglas när `timer2` löper ut.
-
-Om reset-knappen trycks ned, vilket ska kontrolleras via den synkroniserade signalen `reset_s2_n`, ska samtliga lysdioder direkt släckas.
+**e)** Skapa en synkron process i toppmodulen, som ansvarar för uppräkning av räknaren:
+* Vid reset ska `counter` nollställas.
+* Vid stigande klockflank ska `counter` inkrementeras när timern löper ut.
+* Lägg till en intern räknare som räknar från `0-15` när timern löper ut. Vid reset ska denna nollställas.
 
 ---
