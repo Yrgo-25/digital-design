@@ -22,6 +22,7 @@
 
 ### Demonstration
 * Varje del av övningsuppgiften gås igenom i helklass efter att ni fått tid att implementera den på egen hand.
+* Lektionsanteckningar finns [här](./notes/README.md).
 
 ## Utvärdering
 * Vad är de primära fördelarna med vippor framför latchar inom digitala system?
@@ -102,8 +103,11 @@ samt
 Qn = (D * enable * clock + Q)'
 ```
 
-***OBS!** Detta är en förenklad modell för förståelse. I praktiken realiseras D-vippor med flankkänsliga strukturer,
-vilket innebär att utsignalerna endast uppdateras på stigande klockflank.*
+**Tips**: 
+* Lägg till en AND-grind med insignaler `Q` samt `reset_n` på D-vippans utgång för att enkelt implementera en asynkron inverterande reset, så att vippans utsignaler återställs direkt utan att vänta på klockan. 
+* Den inverterande utsignalen `Qn` kan enkelt sättas till inversen av den utsignalen `Q` via en NOT-grind.
+
+***OBS!** Detta är en förenklad modell för förståelse. I praktiken realiseras D-vippor med flankkänsliga strukturer, vilket innebär att utsignalerna endast uppdateras på stigande klockflank, inte under tiden klocksignalen är hög.*
 
 **a)** Realisera motsvarande grindnät för hand och simulera i CircuitVerse. Sätt klockans periodtid till `1000 ms`.
 
@@ -113,14 +117,13 @@ vilket innebär att utsignalerna endast uppdateras på stigande klockflank.*
 
 **d)** Om tid finns, realisera konstruktionen i VHDL via en modul döpt `d_flip_flop`:
 *  Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`).
-* Anslut 
-    * `clock` till en `50 MHz` systemklocka,
-    * `D` samt `enable` till var sin slide-switch,
+* Anslut:
+    * `clock` till en `50 MHz` systemklocka.
+    * `reset_n` till en tryckknapp med aktivt låg insignal.
+    * `D` samt `enable` till var sin slide-switch.
     * `Q` samt `Qn` till var sin lysdiod.
 * Se [databladet](../../manuals/DE0%20User%20ManuaL.pdf) för pin-nummer.
 
-**Tips**: 
-* Lägg till en AND-grind med insignaler `Q` samt `reset_n` på D-vippans utgång för att enkelt implementera en asynkron inverterande reset, så att vippans utsignaler återställs direkt utan att vänta på klockan. 
-* Den inverterande utsignalen `Qn` kan enkelt sättas till inversen av den utsignalen `Q` via en NOT-grind.
+**Tips:** Se avsnitt om [synkrona processers mall](../L18/README.md#bilaga-a---synkrona-processers-mall) för konstruktion av D-vippor i VHDL.
 
 ---
