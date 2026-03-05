@@ -37,7 +37,6 @@
 ---
 
 ## Bilaga A - Synkrona processers mall
-
 Vänligen repetera konceptet [process](../L07/README.md#process) innan du läser vidare.
 
 Nedan demonstreras hur man enkelt kan skapa en D-vippa med klocksignal `clock`, insignal `d` samt 
@@ -52,35 +51,59 @@ begin
 end process;
 ```
 
-I ovanstående process uppdateras utsignal `q` med värdet av `d` vid stigande flank på klockpulsen.
-Övrig tid har `q` samma värde föregående klockpuls.
+I ovanstående process uppdateras utsignal `q` med värdet av `d` vid stigande flank på klocksignalen.
+Övrig tid behåller `q` sitt värde från föregående klocksignal.
 
 ### Viktiga regler
-* `clock` ska utgöra den enda signalen i känslighetslistan. Processen aktiveras då endast vid förändring av klocksignalen.
-* Eftersom vi endast vill uppdatera signaler vid stigande flank på klockan används funktionen `rising_edge` från `ieee.std_logic_1164`.  
-Denna funktion returnerar true vid stigande flank; all logik som ska uppdateras synkront placeras därför inuti en if-sats.
+* `clock` ska utgöra den enda signalen i känslighetslistan:
+    * Processen aktiveras då endast vid förändring av klocksignalen.
+* Eftersom vi endast vill uppdatera signaler vid stigande flank på klockan används funktionen `rising_edge` från `ieee.std_logic_1164`:
+    * Denna funktion returnerar `true` vid stigande flank; all logik som ska uppdateras synkront placeras därför inuti en if-sats.
 * Varje signal som tilldelas inuti processblocket implementeras i hårdvara som en D-vippa.
+
+### D-vippa med asynkron reset
+Har vi en asynkron reset-signal ska också denna läggas till i känslighetslistan (då reset kan ändras oberoende av klockan):
+* Eftersom reset-signalen är asynkron (inte klockstyrd) har den företräde framför klockan. Därför kontrolleras reset-signalen före klocksignalen:
+    * Om reset-signalen är aktiv återställs vippans utsignal.
+* Om reset-signalen inte är aktiv kontrollerar vi istället efter en stigande flank på klockan:
+    * Vid stigande flank uppdateras utsignalen.
+* Om inget av ovanstående fall gäller, t.ex. vid fallande flank på klockan eller om reset-signalen byter från aktiv till inaktiv (vilket också triggar processen) görs ingenting.
+
+```vhdl
+process(clock, reset)
+begin
+    if (reset = '1') then
+        q <= '0';
+    elsif (rising_edge(clock)) then
+        q <= d;
+    end if;
+end process;
+```
 
 ---
 
 ## Bilaga B - Övningsuppgifter
-**1.**  Du ska konstruera ett synkront digitalt system för toggling av en lysdiod via en slide-switch. Systemet ska inneha följande portar: 
+**1.**  Du ska konstruera ett synkront digitalt system för toggling av två lysdioder via var tryckknapp. Systemet ska inneha följande portar: 
 * Insignal `clock` ska utgöras av en systemklocka med godtycklig frekvens (dock `50 MHz` på FPGA-kortet).
-* Insignal `switch` ska utgöras av slide-switch, som vid uppdragning (låg till hög signal) togglar en lysdiod.
-* Utsignal `led` ska utgöras av en lysdiod, som togglas vid uppdrag av slide-switch `switch`.
+* Insignal `reset_n` ska utgöras av en asynkron inverterande reset-signal. När `reset_n` är låg ska systemåterställning ske, oavsett systemklockans tillstånd.
+* Insignal `button_n[1:0]` ska utgöras av två tryckknappar, som vid netryckning (hög till låg) togglar en lysdiod.
+* Utsignal `led[1:0]` ska utgöras av två lysdioder, som togglas vid nedtryckning motsvarande tryckknapp `button_n[1:0]`.
 
-Kretsen ska implementeras synkront; samtliga signaler i kretsen uppdateras endast vid stigande flank av systemklockan.
+Kretsen ska implementeras synkront med en asynkron reset:
+* Samtliga signaler i kretsen uppdateras vid stigande flank på systemklockan `clock` eller när reset-signalen `reset_n` är låg.
+* När `reset_n` är låg ska systemåterställning ske, vilket innebär att samtliga signaler ska sättas till startläget (och lysdioderna ska då släckas).
 
 **a)** Realisera motsvarande grindnät för hand och simulera i CircuitVerse. Sätt klockans periodtid till `1000 ms`. 
 
-**b)** Testa att toggla lysdioden genom att dra upp slide-switchen. Sker togglingen direkt eller dröjer det tills klockan slår? 
+**b)** Testa att toggla lysdioderna genom att trycka ned respektive tryckknapp. Sker togglingen direkt eller dröjer det tills klockan slår? 
 
 **c)** Implementera konstruktionen i VHDL via en modul döpt `led_toggle1`:
 * Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`).
-* Anslut 
-    * `clock` till en `50 MHz` systemklocka,
-    * `switch` till en slide-switch,
-    * `led` till en lysdiod.
+* Anslut:
+    * `clock` till en `50 MHz` systemklocka.
+    * `reset_n` till en tryckknapp med aktivt låg insignal.
+    * `button_n[1:0]` till var sin tryckknapp.
+    * `led[1:0]` till var sin lysdiod.
 * Se [databladet](../../manuals/DE0%20User%20ManuaL.pdf) för pin-nummer.
 
 ---
