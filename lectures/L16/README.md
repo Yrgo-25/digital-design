@@ -18,6 +18,7 @@
 
 ### Under lektionen
 * Fortsätt med [övningsuppgifterna](../L15/README.md#bilaga-b---övningsuppgifter) från föregående lektion.
+* Lösningsförslag finns [här](./notes/README.md).
 * Om ni är färdiga, förbered er inför nästa kursmoment:
     * Se video tutorial gällande D-latchen och D-vippan i VHDL [här](https://www.youtube.com/watch?v=utDHdTgZUz0&authuser=0).
     * Om ni vill, påbörja gärna motsvarande [övningsuppgifter](../L17/README.md).
