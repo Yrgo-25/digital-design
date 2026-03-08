@@ -66,6 +66,8 @@ device_controller2: entity work.device_controller
 
 I detta fall används samma device-kontroller, men med tre tryckknappar + tre lysdioder istället för defaultantalet ett.
 
+När värdet på `DEVICE_COUNT` ändras kommer hela konstruktionen automatiskt skalas så att rätt antal tryckknappar och lysdioder används.
+
 Fördelarna med generiska parametrar är bland annat:
 * Återanvändbar kod.
 * Enklare konfiguration av komponenter.
@@ -79,19 +81,41 @@ Generics används ofta för:
 ---
 
 ## Bilaga B - Övningsuppgifter
-**1.** Du ska konstruera ett synkront digitalt system för toggling av lysdioder via tryckknappar. Systemet ska inneha följande portar:
+I denna övning ska konstruktionen från L19 generaliseras så att samma modul kan användas för ett valfritt antal knappar och lysdioder via en generisk parameter `DEVICE_COUNT`. Detta görs genom att använda generiska parametrar.
+
+Du ska konstruera ett synkront digitalt system för toggling av lysdioder via tryckknappar. Systemet ska inneha följande portar:
 * Insignal `clock` ska utgöras av en systemklocka med godtycklig frekvens (dock `50 MHz` på FPGA-kortet).
 * Insignal `reset_n` ska utgöras av en asynkron inverterande reset-signal. När `reset_n` är låg ska systemåterställning ske, oavsett systemklockans tillstånd.
 * Insignaler `button_n[DEVICE_COUNT-1:0]` ska utgöras av inverterande tryckknappar, som vid nedtryckning (fallande flank) togglar var sin lysdiod.
 * Utsignaler `led[DEVICE_COUNT-1:0]` ska utgöras av lysdioder, som togglas vid nedtryckning (fallande flank) av motsvarande tryckknappar `button_n[DEVICE_COUNT-1:0]`.
+
+**Notering**: I VHDL kan en signal `state[DEVICE_COUNT-1:0]` implementeras såsom visas nedan: 
+
+```vhdl
+signal state: std_logic_vector((DEVICE_COUNT - 1) downto 0);
+```
+
+För toppmodulen gäller att:
+* `DEVICE_COUNT = 3`
+* `button_n(2)` → `led(2)`
+* `button_n(1)` → `led(1)`
+* `button_n(0)` → `led(0)`
 
 Kretsen ska implementeras synkront med en asynkron reset:
 * Samtliga signaler i kretsen uppdateras vid stigande flank på systemklockan `clock` eller när reset-signalen `reset_n` är låg.
 * När `reset_n` är låg ska systemåterställning ske, vilket innebär att samtliga signaler ska sättas till startläget (och lysdioderna ska då släckas).
 
 Kretsen ska också göras mer robust via förebyggande av metastabilitet. För att åstadkomma detta ska "double flop"-metoden användas:
-* Varje insignal (förutom systemklockan) ska synkroniseras via två D-vippor var. Två D-vippor måste då placeras i serie med respektive insignal. Utsignalen ur den andra vippan är stabil och är den signal som används i systemet.
-* Ska flankdetektering genomföras behövs tre seriekopplade vippor per insignal - två som metastabilitetsskydd och en för att lagra föregående tillstånd. Vippa två innehåller då "nuvarande" insignal, medan den tredje vippan innehåller "föregående" insignal.
+* Varje asynkron insignal (förutom systemklockan) ska synkroniseras via två D-vippor var:
+    * Två D-vippor placeras i serie med respektive insignal.
+    * Utsignalen ur den andra vippan är med mycket hög sannolikhet stabil och används därefter i systemet.
+* Ska flankdetektering genomföras behövs tre seriekopplade vippor per insignal - två som metastabilitetsskydd och en för att lagra föregående tillstånd:
+    * Den första och andra vippan används för metastabilitetsskydd (synkronisering till systemklockan).
+    * Den tredje vippan används för flankdetektering och lagrar föregående värde på insignalen.
+    * Därmed gäller att:
+        * Vippa 1 – metastabilitetsskydd.
+        * Vippa 2 – stabiliserad ("nuvarande") insignal.
+        * Vippa 3 – föregående värde (används för flankdetektering).
 
 **OBS:** `DEVICE_COUNT` ska vara en generic av typen `natural range 1 to 3` (dvs. 1, 2 eller 3 knappar/lysdioder).
 
@@ -110,17 +134,20 @@ Kretsen ska också göras mer robust via förebyggande av metastabilitet. För a
   * `led[DEVICE_COUNT-1:0]` till var sin lysdiod.
 * Se [databladet](../../manuals/DE0%20User%20ManuaL.pdf) för pin-nummer.
 
-Lägg till följande synkroniserade signaler i toppmodulen (*s2* indikerar att signalerna har synkroniserats med två vippor):
-* `reset_s2_n`: Asynkron inverterande reset-signal synkroniserad i enlighet med "double flop"-metoden.
-* `button_edge_s2[DEVICE_COUNT-1:0]`: Indikerar nedtryckning av tryckknapparna på fallande flank. Signalerna är dessutom synkroniserade i enlighet med "double flop"-metoden.
+**d)** Deklarera följande signaler i toppmodulen:
+* `led_state[DEVICE_COUNT-1:0]`: Håller lysdiodernas tillstånd internt.
+* `reset_s2_n`: Reset-signal framtagen med två seriekopplade D-vippor, där reset aktiveras asynkront när `reset_n = 0`.
+* `button_edge_s2[DEVICE_COUNT-1:0]`: Indikerar nedtryckning av tryckknapparna på fallande flank. Signalen är dessutom synkroniserad med seriekopplade D-vippor ("double flop"-metoden).
 
-Dessa signaler kommer anslutas till en instans av en delkomponent och därigenom fungera enligt beskrivningen ovan.
+**Notering**: Postfix `s2` indikerar att signalerna har synkroniserats med två vippor.
 
-**d)** Lägg till kod i toppmodulen så att:
-* Respektive lysdiod `led[i]` togglas vid fallande flank på motsvarande tryckknapp (motsvarande synkroniserad signal `button_edge_s2[i]` kommer då vara ettställd).
-* Om reset-knappen trycks ned, vilket ska kontrolleras via den synkroniserade signalen `reset_s2_n`, ska lysdioderna direkt släckas.
+**e)** Anslut `led` till `led_state`:
 
-**e)** Skapa en delkomponent döpt `meta_prev` i en fil döpt `meta_prev.vhd`. Denna delkomponent ska kunna användas för att:
+```vhdl
+led <= led_state;
+```
+
+**f)** Skapa en delkomponent döpt `meta_prev` i en fil döpt `meta_prev.vhd`. Denna delkomponent ska kunna användas för att:
 * Synkronisera insignalerna med "double flop"-metoden (i syfte att förebygga metastabilitet).
 * Detektera nedtryckning av tryckknapparna på fallande flank.
 
@@ -134,11 +161,22 @@ Använd följande portar:
 * `reset_s2_n`: Synkroniserad reset (double flop).
 * `button_edge_s2[DEVICE_COUNT-1:0]`: Ettställd vid nedtryckning (fallande flank) på respektive knapp (baserat på synkroniserad signal).
 
-**f)** Skapa en instans av delkomponenten `meta_prev` i toppmodulen:
+**g)** Skapa en instans av delkomponenten `meta_prev` i toppmodulen:
 * Döp instansen till `meta_prev1`.
 * Anslut portarna till motsvarande signaler i toppmodulen.
-* Se till att `DEVICE_COUNT` i toppmodulen skickas vidare till `meta_prev`.
+* Se till att `DEVICE_COUNT` i toppmodulen skickas vidare till `meta_prev`:
 
-Kontrollera att systemet fungerar som tänkt på FPGA-kortet.
+```vhdl
+meta_prev1: entity work.meta_prev
+    generic map(DEVICE_COUNT => DEVICE_COUNT)
+    port map(...);
+```
+
+**h)** Lägg till kod i toppmodulen så att:
+* Respektive lysdiod `led[i]` togglas vid fallande flank på motsvarande tryckknapp (motsvarande synkroniserad signal `button_edge_s2[i]` kommer då vara ettställd).
+* Om reset-knappen trycks ned, vilket ska kontrolleras via den synkroniserade signalen `reset_s2_n`, ska lysdioderna direkt släckas.
+
+
+**i)** Kontrollera att systemet fungerar som tänkt på FPGA-kortet.
 
 ---
