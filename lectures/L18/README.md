@@ -23,6 +23,7 @@
 ### Under lektionen
 * Läs om synkrona processers mall i [bilaga A](#bilaga-a---synkrona-processers-mall).
 * Genomför bifogade [övningsuppgifter](#bilaga-B---övningsuppgifter).
+* Lektionsanteckningar finns [här](./notes/README.md).
 
 ### Demonstration
 * Varje del av övningsuppgiften gås igenom i helklass efter att ni fått tid att implementera den på egen hand.
