@@ -17,6 +17,7 @@
 
 ### Under lektionen
 * Genomför bifogade [övningsuppgifter](#bilaga-b---övningsuppgifter).
+* Lektionsanteckningar finns [här](./notes/README.md).
 
 ### Demonstration
 * Varje del av övningsuppgiften gås igenom i helklass efter att ni fått tid att implementera den på egen hand.
