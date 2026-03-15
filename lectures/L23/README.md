@@ -1,93 +1,89 @@
-# L23 - Konstruktion av timerkretsar (del II)
+# L23 – Konstruktion av timerkretsar (del II)
 
 ## Dagordning
 * Konstruktion av timerkretsar i VHDL.
 
 ## Mål med lektionen
-* Kunna konstruera timerkretsar i VHDL via generiska moduler.
+* Hantera konstruktioner som består av flera moduler skrivna i olika HDL-språk.
+* Läsa och förstå befintlig HDL-kod.
+* Konstruera timerkretsar i VHDL med hjälp av generiska moduler.
 
 ## Instruktioner
 
 ### Förberedelse
-* Se del II (den andra timmen) av min [video tutorial](https://youtu.be/v7O0QMHzmo8?si=XSc2Qk2BDTFX6iqd&t=3802) för information gällande konstruktion av timerkretsar i VHDL.
+Se del II (den andra timmen) av min [video tutorial](https://youtu.be/v7O0QMHzmo8?si=XSc2Qk2BDTFX6iqd&t=3802) för en genomgång av hur timerkretsar kan konstrueras i VHDL.
 
 ### Under lektionen
-* Genomför bifogade [övningsuppgifter](#bilaga-a---övningsuppgifter).
+* Genomför övningsuppgifterna i [Bilaga A](#bilaga-a--övningsuppgifter).
 
 ## Utvärdering
-* Förklara hur en VHDL-process för en timerkrets kan realiseras via en räknare.
+* Förklara hur en timerkrets i VHDL kan implementeras med hjälp av en räknare i en process.
 
 ## Nästa lektion
-* Genomförande av **D02** - VHDL teori (del II).
+* Genomförande av **D02 – VHDL teori (del II)**.
 
 ---
 
-## Bilaga A - Övningsuppgifter
-Du ska konstruera ett digitalt system i VHDL, där tre timerkretsar kan togglas via var sin tryckknapp.  
-När en given timer är aktiverad ska den räkna klockpulser. Efter ett visst antal klockpulser ska en lysdiod togglas. 
+# Bilaga A – Övningsuppgifter
+Du ska modifiera ett befintligt digitalt system i VHDL, där tre timerkretsar kan togglas via var sin tryckknapp.
 
-Systemet ska inneha följande portar:
-* Insignal `clock` ska utgöras av en systemklocka med en frekvens på `50 MHz`.
-* Insignal `reset_n` ska utgöras av en inverterande reset-signal från en tryckknapp. När denna signal är låg ska systemåterställning ske.
-* Insignaler `button_n[2:0]` ska utgöras av inverterande tryckknappar, som vid fallande flank togglar var sin timer.
-* Utsignal `led[2:0]` ska utgöras av lysdioder, som togglas av var sin timer. 
+När en timer är aktiverad ska den räkna klockpulser. Efter ett visst antal klockpulser ska en lysdiod togglas.
 
-Kretsen ska implementeras synkront med en asynkron reset:
-* Samtliga signaler i kretsen uppdateras vid stigande flank på systemklockan eller när reset-signalen är låg. 
-* När reset-signalen är låg ska systemåterställning ske, vilket innebär att samtliga signaler ska sättas i startläget - timerkretsarna ska då nollställas och lysdioderna ska släckas.
+I projektet finns två moduler skrivna i SystemVerilog, bland annat en timermodul. Dessa ska ersättas med motsvarande implementationer i VHDL.
 
-Kretsen ska också göras mer robust via förebyggande av metastabilitet. För att åstadkomma detta ska "double flop"-metoden användas. Därmed ska varje insignal (förutom systemklockan) synkroniseras via två vippor var.
+## Systemets portar
+Systemet har följande portar:
 
-Timerkretsar `timer0-timer2` ska implementeras internt via en modul döpt `timer`. Timerns frekvens ska kunna väljas vid instansiering, men defaultvärdet ska vara `1 Hz`. I denna konstruktion gäller att:
-* Den första timern, `timer0`, ska toggla en lysdiod var 1000:e millisekund när den är påslagen.
-* Den andra timern, `timer1`, ska toggla en lysdiod var 500:e millisekund när den är påslagen.
-* Den tredje timern, `timer2`, ska toggla en lysdiod var 100:e millisekund när den är påslagen.
+### Insignaler
+* `clock`:Systemklocka med frekvensen **50 MHz**.
+* `reset_n`: Aktiv låg reset-signal från en tryckknapp. När signalen är låg ska systemåterställning ske.
+* `button_n[2:0]`: Aktivt låga tryckknappar. En **fallande flank** ska toggla respektive timer.
 
-**a)** Skapa ett projekt döpt `led_toggle_timer` i Quartus:
-* Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`). 
-* Implementera portar såsom beskrivet ovan.
+### Utsignaler
+* `led[2:0]`: Lysdioder som togglas av respektive timer.
 
-**b)** Lägg till följande signaler i toppmodulen:
-* `reset_s2_n`: Asynkron inverterande reset-signal synkroniserad i enlighet med "double flop"-metoden.
-* `button_edge_s2[2:0]`: Indikerar nedtryckning av tryckknapparna på fallande flank. Signalerna är dessutom synkroniserade i enlighet med "double flop"-metoden.
-* `timer_enable[2:0]`: Lagrar status för respektive timer i systemet (`1` = timern är påslagen).
-* `timeout[2:0]`: Indikerar timeout för respektive timer (`1` = timeout).
+---
 
-Dessa signaler kommer senare anslutas till instanser av delkomponenter och kommer därigenom fungera enligt beskrivningen ovan.
+## Systemets funktion
+Kretsen är implementerad synkront med en asynkron reset:
 
-**c)** Lägg till metastabilitetsskydd för insignaler `reset_n` samt `button_n[2:0]` via "double flop"-metoden:
-* Använd den generiska modulen `meta_prev` från [L21](../L21/README.md).
-* Anslut `reset_s2_n` samt `button_edge_s2[2:0]` till instansens utportar.
+* Samtliga signaler uppdateras vid stigande flank på systemklockan eller när reset-signalen är låg.
+* När `reset_n = 0` ska systemet återställas:
+  * Alla timerkretsar nollställs.
+  * Alla lysdioder släcks.
 
-**d)** Lägg till en generisk modul döpt `timer` med följande parameter och portar:
-* Parameter `FREQUENCY` ska utgöras av timerfrekvensen i form av ett osignerat tal som möjliggör en frekvens mellan `0.1–10 Hz`:
-    * Använd datatypen `natural`.
-    * Använd en range för att sätta min- och maxfrekvensen.
-    * Som exempel:
-        * Om vi har en systemklocka på `50 MHz` ska vi räkna upp `50` miljoner klockpulser innan en sekund har gått. 
-        * För en timerfrekvens på `1 Hz` ska därmed timern räkna upp till `50` miljoner, för `2 Hz` ska den räkna upp till `25` miljoner osv. 
-* Insignal `clock` ska utgöras av konstruktionens systemklocka.
-* Insignal `reset_s2_n` ska utgöras av en synkroniserad inverterande reset-signal. Vid reset ska timern nollställas.
-* Insignal `enable` indikerar om timern är på. Om timern inte är på ska ingen uppräkning ske (men timern ska dock inte nollställas).
-* Utsignal `elapsed` indikerar ifall timern har löpt ut eller inte, vilket sker när timern har räknat upp till `FREQUENCY`.
+## Metastabilitet
+För att göra kretsen mer robust används förebyggande av metastabilitet.
+Detta görs genom att använda "double flop"-metoden:
+* Varje insignal (förutom systemklockan) synkroniseras genom två efterföljande vippor.
 
-**e)** I toppmodulen, skapa tre timerkretsar `timer0–timer2`. Sätt timerfrekvenser enligt beskrivning av lysdiodernas togglingshastighet ovan:
-* Enable- samt elapsed-bitar för `timer0` ska anslutas till `timer_enable[0]` samt `timeout[0]`.
-* Enable- samt elapsed-bitar för `timer1` ska anslutas till `timer_enable[1]` samt `timeout[1]`.
-* Enable- samt elapsed-bitar för `timer2` ska anslutas till `timer_enable[2]` samt `timeout[2]`.
+---
 
-**f)** Lägg till kod i toppmodulen så att respektive timer togglas vid nedtryckning (fallande flank) av motsvarande tryckknapp:
-* `timer0` ska togglas vid nedtryckning av `button_n[0]` => toggla `timer_enable[0]` när `button_edge_s2[0] = 1`.
-* `timer1` ska togglas vid nedtryckning av `button_n[1]` => toggla `timer_enable[1]` när `button_edge_s2[1] = 1`.
-* `timer2` ska togglas vid nedtryckning av `button_n[2]` => toggla `timer_enable[2]` när `button_edge_s2[2] = 1`.
+## Timerkretsar
+Timerkretsarna `timer0–timer2` är implementerade via en SystemVerilog-modul med namnet `timer`:
+* Timerns frekvens kan väljas vid instansiering.
+* Standardvärdet motsvarar **10 Hz**.
 
-Om reset-knappen trycks ned, vilket ska kontrolleras via den synkroniserade signalen `reset_s2_n`, ska samtliga enable-signaler direkt nollställas.
+I denna konstruktion gäller att:
+* När en timer är aktiv togglas motsvarande lysdiod var 100:e millisekund.
+* När en timer är inaktiv hålls motsvarande lysdiod släckt.
 
-**g)** Lägg till kod i toppmodulen så att respektive lysdiod `led[2:0]` togglas när respektive timer genererar timeout:
-* `led[0]` ska togglas när `timer0` genererar timeout.
-* `led[1]` ska togglas när `timer1` genererar timeout.
-* `led[2]` ska togglas när `timer2` genererar timeout.
+---
 
-Om reset-knappen trycks ned, vilket ska kontrolleras via den synkroniserade signalen `reset_s2_n`, ska samtliga lysdioder direkt släckas.
+## Uppgifter
+
+**a)** Öppna projektet [led_toggle_timer.qar](./led_toggle_timer.qar) i Quartus:
+* Kompilera projektet.
+* Testkör systemet på FPGA-kortet.
+
+**b)** Inspektera koden och försök få en förståelse för hur modulerna hänger samman.
+
+**c)** Ersätt modulen `timer` med en motsvarande modul skriven i VHDL.
+
+När detta är gjort kan du ta bort SystemVerilog-versionen av modulen.
+
+**d)** Ersätt modulen `device_controller` med en motsvarande modul i VHDL.
+
+När detta är gjort kan även denna SystemVerilog-modul tas bort.
 
 ---

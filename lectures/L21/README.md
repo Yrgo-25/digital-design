@@ -24,6 +24,8 @@
 * Vilka moment kändes mest utmanande eller lärorika?
 
 ## Nästa lektion
-* Konstruktion av timerkretsar för hand.
+* Demonstration: Konstruktion av timerkretsar för hand.
+* Genomförande av övningsdugga.
+* Om tid finns: Påbörjande av ett digitalt system med timerkretsar i VHDL.
 
 ---
