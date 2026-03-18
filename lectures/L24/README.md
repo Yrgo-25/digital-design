@@ -12,7 +12,7 @@
 ## Instruktioner
 
 ### Förberedelse
-* 
+* Skumma igenom tidigare skapade moduler så att ni har koll på vad dessa har för syfte/funktion.
 
 ### Under lektionen
 * Genomför bifogade [övningsuppgifter](#bilaga-a---övningsuppgifter).
@@ -96,7 +96,7 @@ Kretsen ska också göras mer robust via förebyggande av metastabilitet. För a
 
 **b)** Lägg till tidigare skapade moduler från kursen:
 * `display` från [L16](../L16/README.md).
-* `meta_prev` från [L20](../L20/README.md).
+* `meta_prev` från [L19](../L19/README.md) eller [L20](../L20/README.md) (L19 är enklare när endast en knapp ska synkroniseras).
 * `timer` från [L23](../L23/README.md).
 
 **c)** Implementera systemet via instansiering av ovanstående moduler:

@@ -20,7 +20,7 @@ Se del II (den andra timmen) av min [video tutorial](https://youtu.be/v7O0QMHzmo
 * Förklara hur en timerkrets i VHDL kan implementeras med hjälp av en räknare i en process.
 
 ## Nästa lektion
-* Genomförande av **D02 – VHDL teori (del II)**.
+* Övning - Synkront system med multipla komponenter.
 
 ---
 
