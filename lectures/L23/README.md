@@ -15,6 +15,7 @@ Se del II (den andra timmen) av min [video tutorial](https://youtu.be/v7O0QMHzmo
 
 ### Under lektionen
 * Genomför övningsuppgifterna i [Bilaga A](#bilaga-a--övningsuppgifter).
+* Lösningsförslag finns [här](./notes/README.md).
 
 ## Utvärdering
 * Förklara hur en timerkrets i VHDL kan implementeras med hjälp av en räknare i en process.
