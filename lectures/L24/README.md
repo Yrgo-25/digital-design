@@ -16,6 +16,7 @@
 
 ### Under lektionen
 * Genomför bifogade [övningsuppgifter](#bilaga-a---övningsuppgifter).
+* Lösningsförslag finns [här](./notes/README.md).
 
 ## Utvärdering
 * Hur kopplas flera VHDL-moduler samman i en toppmodul?
