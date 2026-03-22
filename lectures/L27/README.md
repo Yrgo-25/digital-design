@@ -39,7 +39,7 @@ type state_t is (STATE_OFF, STATE_BLINK, STATE_ON);
 ```
 
 Därefter används en signal av denna typ för att hålla aktuellt tillstånd. En sådan signal kan döpas till
-exempelvis `state` eller `current_state`. Nedan implementeras en signal av typen `state_t` döpt state:
+exempelvis `state`, såsom visas nedan:
 
 ```vhdl
 signal state: state_t;
@@ -59,7 +59,8 @@ de signaler när vi ska byta till nästa respektive föregående tillstånd:
 process(clock, reset_s2_n) is
 begin
     if (reset_s2_n = '0') then
-        state <= STATE_OFF; -- Vid reset, sätt state till STATE_OFF.
+        -- Vid reset, sätt state till STATE_OFF.
+        state <= STATE_OFF;
     elsif (rising_edge(clock)) then
         case (state) is
             when STATE_OFF =>
@@ -70,7 +71,8 @@ begin
                 end if;
             --- Här implementerar vi cases för STATE_BLINK samt STATE_ON.
             when others =>
-                state <= STATE_OFF; -- Om något går fel, återställ state till STATE_OFF.
+                -- Om något går fel, återställ state till STATE_OFF.
+                state <= STATE_OFF;
         end case;
     end if;
 end process;
@@ -92,8 +94,9 @@ tillståndet före `STATE_OFF` är `STATE_ON`.
 ### Portar
 * En systemklocka döpt `clock` med en periodtid på `50 MHz` ska användas i konstruktionen.
 * En inverterande reset-signal döpt `reset_n` ska användas för att återställa tillståndet till startläget `STATE_OFF`.
-* En inverterande tryckknapp döpt `button1_n` ska användas för att byta till föregående tillstånd (vid fallande flank).
-* En inverterande tryckknapp döpt `button2_n` ska användas för att byta till nästa tillstånd (vid fallande flank).
+* Inverterande tryckknappar `button_n[1:0]` ska användas för att byta till föregående respektive nästa tillstånd:
+    * Fallande flank på `button_n[1]` byter till föregående tillstånd.
+    * Fallande flank på `button_n[0]` byter till nästa tillstånd.
 * En lysdiod döpt `led` ska styras utefter aktuellt tillstånd enligt beskrivningen ovan.
 
 ### Detaljer
@@ -106,11 +109,13 @@ tillståndet före `STATE_OFF` är `STATE_ON`.
 **a)** Implementera konstruktionen i VHDL via en modul döpt `fsm_led`:
 * Placera projektet i en ny underkatalog `c/quartus/fsm_led`.
 * Döpt projektet till samma namn som toppmodulen (`fsm_led`).
-* Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`).    
+* Välj FPGA-kort Terasic DE0 (enhet `5CEBA4F23C7`).   
+* Använd moduler [meta_prev](../L24/notes/vhdl/meta_prev.vhd) samt 
+[timer](../L24/notes/vhdl/timer.vhd) från tidigare lektioner. 
 
 **b)** Verifiera konstruktionen på ett FPGA-kort. Anslut
 * insignal `clock` till en `50 MHz` klockkrets,
-* insignaler `reset_n`, `button1_n` samt `button2_n` till var sin tryckknapp,
+* insignaler `reset_n` samt `button_n[1:0]` till var sin tryckknapp,
 * utsignal `led` till en lysdiod.
 
 Se [databladet](../../manuals/DE0%20User%20ManuaL.pdf) för PIN-nummer.
