@@ -17,6 +17,7 @@
 
 ### Under lektionen
 * Genomför bifogade [övningsuppgifter](#bilaga-b---övningsuppgifter).
+* Lösningsförslag finns [här](./notes/README.md).
 
 ## Nästa lektion
 * **P04** - Egenvalt projekt (del I).
