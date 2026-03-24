@@ -7,7 +7,6 @@
 * Förstå och kunna analysera samt konstruera enkla synkrona VHDL-konstruktioner innehållande:
     * Flankdetektering.
     * Metastabilitetsskydd.
-    * Timerkretsar.
 
 ## Förutsättningar
 * Genomgång av L17 - L24 för kunskaper om synkrona VHDL-konstruktioner.
@@ -18,7 +17,8 @@
 * Repetera innehållet från L17 - L24.
 
 ### Under lektionen
-* Duggan tilldelas i början av lektionen.
+* Vi börjar med repetition.
+* Duggan tilldelas i början ca 10:20.
 
 ## Nästa lektion
 * Konstruktion av tillståndsmaskiner för hand.
