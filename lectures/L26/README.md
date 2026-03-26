@@ -16,6 +16,7 @@
 
 ### Under lektionen
 * Genomför bifogade [övningsuppgifter](#bilaga-a---övningsuppgifter).
+* Lösningsförslag finns [här](./notes/README.md).
 
 ## Nästa lektion
 * Konstruktion av tillståndsmaskiner i VHDL.
@@ -23,7 +24,6 @@
 ---
 
 ## Bilaga A - Övningsuppgifter
-
 Du ska skapa en tillståndsmaskin bestående av fyra tillstånd:
 * `STATE_0`: Motsvarar `00` i hårdvara.
 * `STATE_1`: Motsvarar `01` i hårdvara.
@@ -47,9 +47,8 @@ Tillståndsmaskinen är:
 * En lysdiod döpt `led` ska tändas i `STATE_3`, övrig tid ska den vara släckt. 
 
 ### Flödesdiagram
-Tillståndsmaskinens flödesdiagram visas nedan.
-* `X` representerar en synkroniserad och flankdetekterad puls från `button_n`, som är hög under en klockcykel 
-vid fallande flank på tryckknappen `button_n`.
+Tillståndsmaskinens flödesdiagram visas nedan:
+* `X` representerar en synkroniserad och flankdetekterad puls från `button_n`, som är hög under en klockcykel vid fallande flank på tryckknappen `button_n`.
 * Utsignal `Y` ska anslutas direkt till lysdioden `led`.
 
 ![](./images/fsm.png)
