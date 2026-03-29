@@ -37,6 +37,65 @@ De enda kraven på projektet är att konstruktionen:
 * Diskutera med läraren kring era projektidéer samt betygsnivå.
 * Projektet ska redovisas för läraren.
 
+### Exempelprojekt
+Nedan följer exempel på projektidéer anpassade för **Terasic DE0**. Projekten ska endast använda kortets inbyggda resurser, såsom **tryckknappar**, **slide switches**, **LED:ar** och **7-segmentsdisplayer**. Dessa är endast förslag – ni får gärna komma på egna idéer i samråd med läraren.
+
+#### Enklare projekt (G-nivå)
+* **Reaktionstidstest**
+  * En LED tänds efter en fördröjning.
+  * Användaren ska trycka på en knapp så snabbt som möjligt.
+  * Reaktionstiden visas på 7-segmentsdisplay.
+  * Kan exempelvis använda en knapp för start och en annan för reset.
+
+* **Nedräkningstimer**
+  * En timer som räknar ned från ett förinställt tvåsiffrigt värde till `0`.
+  * Start/stopp via knapp.
+  * Tiden kan ställas in med slide switches.
+  * När tiden är slut blinkar en lysdiod med valfri blinkhastighet.
+
+* **Poängräknare för två spelare**
+  * Två knappar används för att öka poäng för respektive spelare.
+  * Resultatet visas på 7-segmentsdisplayer.
+  * En knapp kan användas för reset.
+
+* **Elektronisk tärning**
+  * Tryck på en knapp för att "kasta" tärningen.
+  * Talet `1–6` visas på en 7-segmentsdisplay eller via LED-mönster.
+
+---
+
+#### Mer avancerade projekt (VG-nivå)
+* **Trafikljussystem**
+  * Implementera ett trafikljus med sekvenser för rött, gult och grönt.
+  * LED:ar används som trafikljus.
+  * Tillståndsmaskin styr växlingen mellan olika lägen.
+  * En knapp kan användas för gångtrafikantbegäran.
+  * 7-segmentsdisplay kan visa nedräkningstid.
+
+* **Kodlås**
+  * En kod anges med slide switches.
+  * En knapp används för att bekräfta inmatning.
+  * Systemet låses upp vid korrekt kod och visar resultat via LED eller display.
+  * Konstruktionen kan utökas med felräknare eller timeout.
+
+* **Simon Says / minnesspel**
+  * Systemet visar en sekvens via LED:ar.
+  * Användaren återupprepar sekvensen med knappar eller switchar.
+  * Sekvensen växer successivt.
+  * Resultat eller nivå kan visas på 7-segmentsdisplay.
+
+* **Avancerat stoppur/timer**
+  * Flera lägen, exempelvis stoppur, nedräkning och paus.
+  * Val av läge kan göras med slide switches.
+  * Visning sker på 7-segmentsdisplayer.
+  * Konstruktionen ska innehålla tydlig moduluppdelning och minst en tillståndsmaskin.
+
+* **Parkeringsräknare**
+  * Knappar används för att simulera "bil in" och "bil ut".
+  * Aktuellt antal visas på display.
+  * LED:ar kan indikera när parkeringen är full.
+  * Systemet ska hantera gränsfall, exempelvis att antalet inte får bli negativt.
+
 ---
 
 ## Bilaga B - Exempelprojekt
